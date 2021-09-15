@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+/* HEADER */
+h1.h1 {
+    font-size: 2.5rem;
+}
+
+.title {
+    margin-top: 1rem;
+}
+
+.logo {
+
+}
+
+/* FOOTER */
+
+.page-footer  {
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background-color: black;
+    text-align: center;
+}
