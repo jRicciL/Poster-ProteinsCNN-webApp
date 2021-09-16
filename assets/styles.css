@@ -1,0 +1,82 @@
+:root {
+    --dark1: #444;
+    --bright-green: hsl(155, 96%, 57%);
+    --orange: #ffa250
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+  }
+
+
+
+/* HEADER */
+.header {
+    background-color: var(--dark1);
+    padding: 0.8rem 1rem 0.2rem 1rem;
+    margin: 0;
+}
+
+h1.title-text {
+    font-size: 1.6rem;
+    color: #FAB06E;
+}
+
+p.authors-text {
+    font-size: 0.9rem;
+    color: rgb(31, 118, 177);
+}
+
+.logo {
+
+}
+
+
+/* NAVBAR */
+.nav {
+    background-color: var(--dark1);;
+}
+
+.navbar-container {
+    background-color: var(--dark1);
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+.nav-pills .nav-link {
+    background-color: transparent;
+}
+
+.nav-pills .nav-link.active {
+    color: rgb(0, 0, 0);
+    border-radius: 0.3rem 0.3rem 0 0;
+    background-color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* CONTENT */
+.section-container {
+    margin: 2rem;
+    display: flex;
+}
+
+
+
+/* FOOTER */
+.page-footer  {
+    position: fixed;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    background-color:  var(--dark1);
+    text-align: center;
+}
