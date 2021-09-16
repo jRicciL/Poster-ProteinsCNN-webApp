@@ -1,7 +1,7 @@
 import dash.html as html
 import dash.dcc as dcc
 import dash_bootstrap_components as dbc
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, ClientsideFunction
 
 import dash_defer_js_import as dji
 
@@ -15,12 +15,22 @@ layout = dbc.Row(
         dbc.Col(
             lg = 6,
             children=[
-                # dji.Import(src="https://unpkg.com/ngl@0.10.4/dist/ngl.js"),
+                
                 html.H2('Test'),
-                dcc.Input(id="in-component1", 
-                          type="text", placeholder="", 
-                          value = 'dfs'),
-                html.Div(id='viewport'),
+                dbc.RadioItems(
+                    options=[
+                        {"label": "Option 1", "value": 'cartoon'},
+                        {"label": "Option 2", "value": 'licorice'},
+                        {"label": "Disabled Option", "value": 'd', "disabled": True},
+                    ],
+                    value='cartoon',
+                    id="radioitems-input",
+                ),
+                dbc.Container(
+                         id='viewport',
+                         children = [],
+                         style = {'width': '100%', 
+                                  'height': '400px'}),
                 html.Div(id='output-test')
             ]
         ),
@@ -43,21 +53,32 @@ layout = dbc.Row(
     ]
 )
 
+
 app.clientside_callback(
-    '''
-    function (value) {
-        var stage = new NGL.Stage("viewport");
-        // load a PDB structure and consume the returned `Promise`
-        stage.loadFile("https://raw.githubusercontent.com/jRicciL/MD_namd_python/master/dm_sources_1L2Y/1-topologia/tc5b.pdb").then(function (component) {
-        // add a "cartoon" representation to the structure component
-        component.addRepresentation("cartoon");
-        // provide a "good" view of the structure
-        component.autoView();
-        });
-        return value
-    }
-    ''',
+    ClientsideFunction(
+        namespace     = 'clientside',
+        function_name = 'ngl_mol'
+    ),
     Output('output-test', 'children'),
-    Input('in-component1',  'value'),
-    # prevent_initial_call = True
+    Input('viewport',     'id'),
+    Input('radioitems-input','value'),
 )
+
+# app.clientside_callback(
+#     '''
+#     function (value) {
+#         console.log(typeof(global))
+#         let stage = new NGL.Stage("viewport");
+#         // load a PDB structure and consume the returned `Promise`
+#         stage.loadFile("https://raw.githubusercontent.com/jRicciL/MD_namd_python/master/dm_sources_1L2Y/1-topologia/tc5b.pdb").then(function (component) {
+#         // add a "cartoon" representation to the structure component
+#         component.addRepresentation("cartoon");
+#         // provide a "good" view of the structure
+#         component.autoView();
+#         });
+#     }
+#     ''',
+#     Output('output-test', 'children'),
+#     Input('in-component1',  'value'),
+#     # prevent_initial_call = True
+# )
