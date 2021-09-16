@@ -2,3 +2,5 @@ venv
 *.pyc
 .DS_Store
 .env
+assets/._favicon.ico
+**/._*
