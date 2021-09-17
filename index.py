@@ -10,7 +10,7 @@ from apps import header
 from apps import footer
 from apps import navbar
 # Content components
-from apps.sections import conclusions, introduction
+from apps.sections import conclusions, introduction, methods
 
 
 app.layout = html.Div([
@@ -33,7 +33,7 @@ def display_page(pathname):
     elif pathname == '/introduction':
         return introduction.layout 
     elif pathname == '/methods':
-        return introduction.layout
+        return methods.layout
     elif pathname == '/conclusions':
         return conclusions.layout
     else:
