@@ -12,7 +12,7 @@ from dash.dependencies import Input, Output
 cyto_canvas = html.Div(
     style={'flex': '1',
            'position': 'relative',
-           'height': '70vh',
+           'height': '100%',
            },
     children =[
         cyto.Cytoscape(
@@ -22,16 +22,19 @@ cyto_canvas = html.Div(
             maxZoom = 1.1,
             minZoom = 0.7,
             zoom = 1,
-            layout = {'name': 'preset'},
+            layout = {
+                'name': 'preset',
+                'fit': True
+                },
             style = {
-                'position': 'absolute',
+                # 'position': 'absolute',
                 'width': '100%',
-                'min-height': '500px',
-                'max-height': '700px',
-                'height': '70vh',
+                'minHeight': '550px',
+                'maxHeight': '800px',
+                # 'height': '550px',
                 # 'max-height': 
-                'z-index': 999,
-                'margin': 'auto'
+                'zIndex': 10,
+                # 'margin': 'auto'
                 },
             elements = get_cyto_elements_methods() 
         )
@@ -47,9 +50,9 @@ restart_view_button = dbc.Button(
     className="mr-1",
     style={
         # 'right': '100%',
-        'margin-left': '8px',
-        'margin-top': '-38px',
-        'z-index': 5,
+        'marginLeft': '8px',
+        'zIndex': 10,
+        'bottom': '8px',
         'padding': '2px 5px',
         'position':'absolute'
     }
@@ -57,6 +60,13 @@ restart_view_button = dbc.Button(
 )
 
 row_cyto = html.Div(
+    style={
+        # 'position': 'fixed',
+        'display': 'flex',
+        'flexDirection': 'column',
+        'height': '100%',
+        'width': '100%'
+    },
     children = [
          cyto_canvas,
          restart_view_button
@@ -65,7 +75,7 @@ row_cyto = html.Div(
 
 # Texts
 row_markdown = dbc.Row(
-    className='row-text-content',
+    className='row-title-content',
     children= [
        html.H2('Methodology Workflow'),
        html.P([
@@ -76,8 +86,8 @@ row_markdown = dbc.Row(
                 ' below to see details about the workflow.'
                 ],
             style={
-                'justify-content': 'center',
-                'text-align': 'center'
+                'justifyContent': 'center',
+                'textAlign': 'center'
             }
             )
     ]
