@@ -59,9 +59,14 @@ layout = dbc.Row(
     # [Input('reset-cytoscape', 'n_clicks')]
 )
 def displayTapNodeData(data):
+    default_label = 'Conf. Ensemble'
     if data == None:
-        sec_name = 'Conf. Ensemble'
+        sec_name = default_label
     else:
         sec_name = data['label']
-    children = sections_dict[sec_name]
+
+    if sec_name in elements_labels:
+        children = sections_dict[sec_name]
+    else:
+        children = sections_dict[default_label]
     return [children]
