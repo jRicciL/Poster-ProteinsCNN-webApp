@@ -94,7 +94,10 @@ def add_CRYS_mds_trace(
         size_scale = 1.5,
         marker_symbol = 'circle',
         hoverinfo = 'text',
-        opacity = 0.7):
+        line_width = 0,
+        line_color = 'black',
+        opacity = 0.7,
+        ):
     
     labels = df[hue_col].unique()
     assert len(labels) == len(palette)
@@ -134,7 +137,8 @@ def add_CRYS_mds_trace(
                     sizemode='diameter',
                     sizeref= size_scale*max(size)/(5.**2),
                     sizemin=1,
-                    line_width=0
+                    line_width=line_width,
+                    line_color = line_color
                 ),           
                 #selectedpoints = preselected_confs,
                 selected=dict(
@@ -210,4 +214,21 @@ def add_REFS_mds_trace(
         )
     )
 
+    return fig
+
+
+def add_arrows_trace(fig, df, x_col_1, y_col_1, 
+                     x_col_2, y_col_2):
+    df_cols = df[[x_col_1, y_col_1, 
+                     x_col_2, y_col_2]].values
+    for x1, y1, x2, y2 in df_cols:
+         fig.add_trace(
+            go.Scatter(
+                x = [x1, x2],
+                y = [y1, y2],
+                mode='lines',
+                hoverinfo='skip',
+                showlegend=False,
+                line_color = 'cyan')
+         )
     return fig

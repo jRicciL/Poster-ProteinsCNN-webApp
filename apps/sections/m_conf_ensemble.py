@@ -13,6 +13,7 @@ from helpers.plotly_conf import plotly_conf
 from helpers.mds_plot import get_mds_layout
 from helpers.mds_plot import add_CRYS_mds_trace
 from helpers.mds_plot import add_REFS_mds_trace 
+from helpers.mds_plot import add_arrows_trace
 
 
 # Titles
@@ -182,10 +183,19 @@ def update_mds_plot(
             marker_symbol='triangle-up',
             hoverinfo='skip',
             size_scale=2.5,
+            opacity=1,
+            line_width=1,
             show_legend = False)
     
         if 'connects' in switches_crys_ensembles_vals: 
-            pass
+            fig_mds = add_arrows_trace(
+                fig_mds, 
+                df_prot_data, 
+                f'x_crys_{atoms_subset}', 
+                f'y_crys_{atoms_subset}',
+                f'x_min_{atoms_subset}', 
+                f'y_min_{atoms_subset}'
+            )
 
     # Always add the reference labels at the end
     ref_pdb_ids = ['1fin', '4fku', '3pxf', '5a14']
@@ -202,7 +212,7 @@ plot_subtitles = dbc.Row(
     children= [
        # Subtitle
        html.H3([
-           'A subtitle']
+           'cMD projection: Crystal and MD structures']
        )
     ]
 )
@@ -231,7 +241,8 @@ switches_crys_ensembles = dbc.FormGroup(
             options=[
                 {"label": "CRYS", "value": 'crys', "disabled": True},
                 {"label": "MIN-CRYS", "value": 'min-crys'},
-                {"label": "Show connections", "value": 'connects'},
+                {"label": "Show connections", 
+                 "value": 'connects'},
             ],
             value=['crys'],
             id="switches-crys-ens",
@@ -244,15 +255,15 @@ row_plot = dbc.Row(
     # className='row-text-content',
     children=[
         dbc.Col(
-        lg=3, md=4, sm = 12,
-        id='mds-ensemble-inputs',
-        children=[
-            radioitems_prot_section,
-            switches_crys_ensembles 
-        ]
+            lg=3, md=3, sm = 12,
+            id='mds-ensemble-inputs',
+            children=[
+                radioitems_prot_section,
+                switches_crys_ensembles 
+            ]
         ),
         dbc.Col(
-            lg=9, md=8, sm = 12,
+            lg=9, md=9, sm = 12,
             children=[
             dcc.Graph(
                 id = 'mds-ensemble-plot',
@@ -288,7 +299,6 @@ col_contents = [
 def render_mds_plot_methods(fig, 
             atoms_subset, 
             switches_crys_ensembles_vals):
-    print(switches_crys_ensembles_vals)
     new_fig = update_mds_plot(fig, 
             atoms_subset, 
             switches_crys_ensembles_vals) 
