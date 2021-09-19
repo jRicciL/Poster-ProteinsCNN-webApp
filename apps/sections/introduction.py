@@ -54,15 +54,15 @@ layout = dbc.Row(
 )
 
 
-app.clientside_callback(
-    ClientsideFunction(
-        namespace     = 'clientside',
-        function_name = 'ngl_mol'
-    ),
-    Output('output-test', 'children'),
-    Input('viewport',     'id'),
-    Input('radioitems-input','value'),
-)
+# app.clientside_callback(
+#     ClientsideFunction(
+#         namespace     = 'clientside',
+#         function_name = 'ngl_mol'
+#     ),
+#     Output('output-test', 'children'),
+#     Input('viewport',     'id'),
+#     Input('radioitems-input','value'),
+# )
 
 # app.clientside_callback(
 #     '''
