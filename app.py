@@ -20,7 +20,8 @@ app = dash.Dash(
                 'content': 'width=device-width, initial-scale=1.0'
                 }],
     external_stylesheets=[dbc.themes.JOURNAL, FA],
-    external_scripts=external_scripts
+    external_scripts=external_scripts,
+    url_base_pathname='/'
 )
 app.title = 'JRL: LatinXChem poster'
-server = app.server
+

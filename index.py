@@ -14,6 +14,8 @@ from apps.sections import conclusions, introduction, \
                           methods, presentation
 from helpers.load_data import data_source
 
+server = app.server
+
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
     header.layout,
