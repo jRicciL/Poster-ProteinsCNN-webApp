@@ -9,6 +9,7 @@ from app import app
 
 
 url_sections = {
+    'Presentation'        : 'presentation',
     'Introduction'        : 'introduction',
     'Methods'             : 'methods',
     'Results'             : 'results',
@@ -17,9 +18,9 @@ url_sections = {
 }
 
 
-
 layout = dbc.Row(
-    [
+    className = 'navbar-container',
+    children = [
         dbc.Col(
             sm =0, md = 0, lg = 2),
         dbc.Col(
@@ -43,7 +44,6 @@ layout = dbc.Row(
         dbc.Col(
             sm =0, md = 0, lg = 2)
     ],
-    className='navbar-container'
 )
 
 @app.callback(
@@ -53,6 +53,8 @@ layout = dbc.Row(
 )
 def toggle_active_links(pathname):
     if pathname == "/":
-        return True, False, False, False, False
+        active_links = [False for i in range(len(url_sections))]
+        active_links[0] = True
+        return active_links
     return [pathname == f'/{section_url}'
                 for section_url in url_sections.values()]
