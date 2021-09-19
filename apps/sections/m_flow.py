@@ -2,11 +2,29 @@ import json
 import dash.html as html
 import dash.dcc as dcc
 import dash_bootstrap_components as dbc
-from apps.sections.m_cyto_elements import get_cyto_elements_methods
+from apps.sections.m_cyto_elements import get_cyto_elements 
 import dash_cytoscape as cyto
 
 from app import app
 from dash.dependencies import Input, Output
+
+# Restart view button
+restart_view_button = dbc.Button(
+    "Reset view", 
+    id='reset-cytoscape',
+    outline=True, 
+    color="info", 
+    className="mr-1",
+    style={
+        # 'right': '100%',
+        'marginLeft': '6px',
+        'zIndex': 20,
+        'bottom': '36px',
+        # 'marginTop': '-18px',
+        'padding': '2px 5px',
+        'position':'relative'
+    }
+)
 
 # Cytoscape colum
 cyto_canvas = html.Div(
@@ -29,47 +47,31 @@ cyto_canvas = html.Div(
             style = {
                 # 'position': 'absolute',
                 'width': '100%',
-                'minHeight': '550px',
-                'maxHeight': '800px',
+                'minHeight': '560px',
+                # 'maxHeight': '850px',
                 # 'height': '550px',
                 # 'max-height': 
                 'zIndex': 10,
                 # 'margin': 'auto'
                 },
-            elements = get_cyto_elements_methods() 
-        )
+            elements = get_cyto_elements() 
+        ),
+        restart_view_button
     ]
 )
 
-# Restart view button
-restart_view_button = dbc.Button(
-    "Reset view", 
-    id='reset-cytoscape',
-    outline=True, 
-    color="primary", 
-    className="mr-1",
-    style={
-        # 'right': '100%',
-        'marginLeft': '8px',
-        'zIndex': 10,
-        'bottom': '8px',
-        'padding': '2px 5px',
-        'position':'absolute'
-    }
 
-)
 
 row_cyto = html.Div(
     style={
-        # 'position': 'fixed',
         'display': 'flex',
         'flexDirection': 'column',
-        'height': '100%',
+        # 'height': '50%',
         'width': '100%'
     },
     children = [
-         cyto_canvas,
-         restart_view_button
+         cyto_canvas
+        #  restart_view_button
         ],
 )
 
@@ -94,15 +96,19 @@ row_markdown = dbc.Row(
 )
 
 
+# col_container = dbc.Col(
+#     lg = 4, md = 12, sm = 12,
+#     className = 'col-container-methods',
+#     children = [
+#         row_markdown,
+#         row_cyto,
+#         ],
+# )
 
-col_container = dbc.Col(
-    lg = 4, md = 12, sm = 12,
-    className = 'col-container-methods',
-    children = [
+col_contents = [
         row_markdown,
         row_cyto,
-        ],
-)
+        ]
 
 # Callbacks 
 @app.callback(
@@ -115,23 +121,5 @@ col_container = dbc.Col(
 )
 def reset_layout(n_clicks):
     layout = {'name': 'preset'}
-    elements = get_cyto_elements_methods()
+    elements = get_cyto_elements()
     return [layout, 1, elements]
-
-# Test update columns
-# @app.callback(
-#     [
-#      Output('methods-sec-title', 'children'),
-#      Output('methods-sec-subtitle', 'children')
-#     ],
-#     [Input('cytoscape-methods', 'tapNodeData')]
-#     # [Input('reset-cytoscape', 'n_clicks')]
-# )
-# def displayTapNodeData(data):
-#     if data == None:
-#         sec_name = 'Crystal Structures'
-#     else:
-#         sec_name = data['label']
-#         n = 'Otra opcion'
-#     children_title = [sec_name]
-#     return children
