@@ -273,7 +273,7 @@ row_content = dbc.Row(
 # COL CONTENTS
 col_contents = [
         row_titles,
-        row_content,
+        row_content
     ]
 
 app.clientside_callback(
