@@ -10,8 +10,9 @@ from apps import header
 from apps import footer
 from apps import navbar
 # Content components
-from apps.sections import conclusions, introduction, methods
-
+from apps.sections import conclusions, introduction, \
+                          methods, presentation
+from helpers.load_data import data_source
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -28,8 +29,8 @@ app.layout = html.Div([
     Input('url', 'pathname')
     )
 def display_page(pathname):
-    if   pathname == '/':
-        return introduction.layout
+    if   pathname == '/' or pathname == '/presentation':
+        return presentation.layout
     elif pathname == '/introduction':
         return introduction.layout 
     elif pathname == '/methods':
