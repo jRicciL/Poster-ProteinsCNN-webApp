@@ -1,11 +1,11 @@
 :root {
     --dark1: #273139;
     --bright-green: hsl(155, 96%, 57%);
-    --orange: #ffad65;
+    --orange: #f4b06d;
     --background: #e1d8c3;
     --background-canvas: #edebe1;
     --blue-primary: #1f76b1;
-    --blue-light: #79bec5;
+    --blue-light: #8cd4dc;
 }
 
 * {
@@ -18,6 +18,9 @@ body {
     padding: 0;
     background-color: var(--background); 
     line-height: 1em;
+    height: 100%;
+    min-height: 100vh;
+    font-size: 16px;
   }
 
 a {
@@ -35,7 +38,7 @@ a:hover {
 }
 
 h1.title-text {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 500;
     color: var(--orange)
 }
@@ -79,6 +82,7 @@ p.authors-text {
 /* MARKS */
 mark {
     padding: 0px 2px;
+    background-color: rgba(150, 185, 201, 0.548);
 }
 
 .mark-red {
@@ -89,6 +93,55 @@ mark {
     background-color: rgb(189, 195, 203);
 }
 
+/* Ensembles list */
+.ensembles-list {
+    line-height: 1.3rem;
+    padding-left: 3rem;
+    font-size: 15px;
+}
+
+
+/* marks for protein conformations */
+.confs-list {
+    line-height: 1.6rem;
+    padding-left: 3rem;
+}
+
+.mark-1fin {
+    background-color: #f46d6d;
+}
+
+.mark-confs {
+    display: inline-block;
+    padding: 0px 0px;
+    margin: 1px 2px;
+    border-radius: 4px;
+    width: 42px;
+    height: 22px;
+    text-align: center;
+}
+ .mark-confs > a {
+    color: rgb(233, 233, 223);
+ }
+
+.mark-1fin {
+    background-color: #da5d5d;
+}
+
+.mark-4fku {
+    background-color: #27879c;
+}
+
+.mark-5a14 {
+    background-color: #2f917b;
+}
+
+.mark-3pxf {
+    background-color: #cc893c;
+}
+
+
+
 .ico {
     /* font-size: 0.9rem; */
     margin-left: -0.8rem;
@@ -97,10 +150,6 @@ mark {
 }
 
 /* CONTENT */
-.col-container-methods {
-    margin-bottom: 2rem;
-}
-
 .content-col-methods {
     display: flex;
     flex-direction: column;
@@ -118,15 +167,76 @@ mark {
     margin: 2rem;
     display: flex;
     height: 100%;
+    width: 100%;
 }
 
 /* FIGURES */
 .plot-margin {
     border: 2px solid var(--dark1);
+    border-radius: 8px;
+}
+
+/* MOLECULE VIEWER NGL */
+
+.mol-viewer {
+    background-color: var(--dark1); 
+    margin-top: 0.8rem;
+}
+
+/* radio button selector */
+#radioitems-conformations {
+    display: flex;
+    justify-content:  space-around;
+    padding: 4px;
+}
+#radioitems-conformations > div > label {
+    font-weight: 600;
+    margin-top: 5px;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+#radioitems-conformations > div:nth-child(1) > label {
+    background-color: #da5d5d5a;
+    
+}
+
+#radioitems-conformations > div:nth-child(2) > label {
+    background-color: #27879c5a;
+    
+}
+
+#radioitems-conformations > div:nth-child(3) > label {
+    background-color: #e0a21d5a;
+    
+}
+
+#radioitems-conformations > div:nth-child(4) > label {
+    background-color: #3bb1745a;
+    
+}
+
+/* CYTOSCAPE */
+
+.cyto_main_container {
+    /* position: fixed; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.cyto-canvas-container {
+   flex: 1;
+   position: relative; 
 }
 
 .cyto-canvas {
     background-color: var(--background-canvas);
+    /* position: absolute; */
+    /* width: 100%; */
+    /* height: 100%; */
+    z-index: 10;
 }
 
 /* METHODS CONTAINERS */
@@ -144,11 +254,12 @@ mark {
 
 .row-title-content > h2  {
     font-weight: 600;
+    /* color: rgb(62, 104, 136); */
     font-size: 1.5rem;
 }
 
 .row-title-content > h3  {
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1.2rem;
     margin-bottom: 0.3rem;
 }
@@ -161,8 +272,8 @@ mark {
 
 .row-text-content p  {
     margin: 0.5rem 1rem;
-    line-height: 1.2rem;
-    font-size: 0.92rem;
+    line-height: 1.25rem;
+    /* font-size: 0.9rem; */
     /* text-align: justify; */
     /* text-justify: inter-word; */
 }
@@ -175,7 +286,7 @@ mark {
     position: fixed;
     bottom: 0;
     font-size: 0.8rem;
-    height: 20px;
+    height: 25px;
     width: 100%;
     background-color:  var(--dark1);
     text-align: center;
