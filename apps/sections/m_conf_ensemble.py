@@ -7,6 +7,7 @@ import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output, ClientsideFunction
 from app import app
 
+import plotly.graph_objects as go
 from helpers.load_data import get_df_crys_prot
 from helpers.plotly_conf import plotly_conf
 from helpers.mds_plot import get_mds_layout
@@ -134,9 +135,11 @@ row_texts = dbc.Row(
 )
 
 # Plot Row
-
+ref_pdb_ids = ['1fin', '4fku', '3pxf', '5a14']
 # Create the default figure
-def get_def_mds_plot(atoms_subset = 'sec'):
+def get_default_mds_plot(
+        atoms_subset = 'sec',
+        ):
     df_prot_data = get_df_crys_prot()
     fig_mds = get_mds_layout()
     # CRYS
@@ -144,16 +147,98 @@ def get_def_mds_plot(atoms_subset = 'sec'):
          f'x_crys_{atoms_subset}', 
          f'y_crys_{atoms_subset}', 
          opacity=0.85)
-    # CRYS MIN
-    # fig_mds = add_CRYS_mds_trace(fig_mds, df_prot_data, 
-    #       f'x_min_{atoms_subset}', 
-    #       f'y_min_{atoms_subset}', 
-    #       size_col='', single_size=2, 
-    #       marker_symbol='triangle-up',
-    #       hoverinfo='skip',
-    #       size_scale=2.5,
-    #       show_legend = False)
+    ref_pdb_ids = ['1fin', '4fku', '3pxf', '5a14']
+    df_ref_confs = df_prot_data[df_prot_data['PDB-id'].isin(ref_pdb_ids)]
+    fig_mds = add_REFS_mds_trace(fig_mds, 
+                             df_ref_confs, 
+                             f'x_crys_{atoms_subset}', 
+                             f'y_crys_{atoms_subset}')
+
     return fig_mds 
+
+# Create the user requested figure
+def update_mds_plot(
+        fig_mds_dict,
+        atoms_subset = 'sec',
+        switches_crys_ensembles_vals = [1, 0, 0] # Determine which crys draw
+    ):
+    df_prot_data = get_df_crys_prot()
+    fig_mds = go.Figure(fig_mds_dict)
+    fig_mds.data = []
+    # CRYS
+    fig_mds = add_CRYS_mds_trace(
+                fig_mds, 
+                df_prot_data, 
+                f'x_crys_{atoms_subset}', 
+                f'y_crys_{atoms_subset}', 
+                opacity=0.85)
+    # COnditional to the radio button 
+    # CRYS MIN
+    if 'min-crys' in switches_crys_ensembles_vals:
+        fig_mds = add_CRYS_mds_trace(fig_mds, df_prot_data, 
+            f'x_min_{atoms_subset}', 
+            f'y_min_{atoms_subset}', 
+            size_col='', single_size=2, 
+            marker_symbol='triangle-up',
+            hoverinfo='skip',
+            size_scale=2.5,
+            show_legend = False)
+    
+        if 'connects' in switches_crys_ensembles_vals: 
+            pass
+
+    # Always add the reference labels at the end
+    ref_pdb_ids = ['1fin', '4fku', '3pxf', '5a14']
+    df_ref_confs = df_prot_data[df_prot_data['PDB-id'].isin(ref_pdb_ids)]
+    fig_mds = add_REFS_mds_trace(fig_mds, 
+                             df_ref_confs, 
+                             f'x_crys_{atoms_subset}', 
+                             f'y_crys_{atoms_subset}')
+
+    return fig_mds 
+
+plot_subtitles = dbc.Row(
+    className='row-title-content',
+    children= [
+       # Subtitle
+       html.H3([
+           'A subtitle']
+       )
+    ]
+)
+# Radio buttons to select protein substructure
+radioitems_prot_section = dbc.FormGroup(
+    [
+        dbc.Label(html.B("CDK2 residues used:")),
+        dbc.RadioItems(
+            options=[
+                {"label": "Secondary Structure residues", 
+                 "value": 'sec'},
+                {"label": "Pocket residues", 
+                 "value": 'pkt'}
+            ],
+            value='sec',
+            id="radioitems-prot-section",
+        ),
+    ]
+)
+
+# Protein Ensemble Groups
+switches_crys_ensembles = dbc.FormGroup(
+    [
+        dbc.Label(html.B("CDK2 CRYS conformations:")),
+        dbc.Checklist(
+            options=[
+                {"label": "CRYS", "value": 'crys', "disabled": True},
+                {"label": "MIN-CRYS", "value": 'min-crys'},
+                {"label": "Show connections", "value": 'connects'},
+            ],
+            value=['crys'],
+            id="switches-crys-ens",
+            switch=True,
+        ),
+    ]
+)
 
 row_plot = dbc.Row(
     # className='row-text-content',
@@ -161,6 +246,10 @@ row_plot = dbc.Row(
         dbc.Col(
         lg=3, md=4, sm = 12,
         id='mds-ensemble-inputs',
+        children=[
+            radioitems_prot_section,
+            switches_crys_ensembles 
+        ]
         ),
         dbc.Col(
             lg=9, md=8, sm = 12,
@@ -168,7 +257,7 @@ row_plot = dbc.Row(
             dcc.Graph(
                 id = 'mds-ensemble-plot',
                 config = plotly_conf,
-                figure = get_def_mds_plot() 
+                figure = get_default_mds_plot() 
             ),
             ]
         )
@@ -177,11 +266,30 @@ row_plot = dbc.Row(
     
 )
 
-
 col_contents = [
     row_titles,
     row_texts,
+    plot_subtitles,
     row_plot 
 ]
 
 # Render PLOT
+@app.callback(
+    [
+        Output(component_id='mds-ensemble-plot',
+               component_property='figure')
+    ],
+    [
+        Input('mds-ensemble-plot', 'figure'),
+        Input('radioitems-prot-section', 'value'),
+        Input('switches-crys-ens', 'value'),
+    ]
+)
+def render_mds_plot_methods(fig, 
+            atoms_subset, 
+            switches_crys_ensembles_vals):
+    print(switches_crys_ensembles_vals)
+    new_fig = update_mds_plot(fig, 
+            atoms_subset, 
+            switches_crys_ensembles_vals) 
+    return [new_fig] 
