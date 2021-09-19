@@ -51,7 +51,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             stage.loadFile(pdb_path)
                 .then(
                     function (component) {
-                        let sele = "sidechainAttached and (7-19 or 29-32 or 64-65 or 79-89 or 128-133 or 142-145)"
+                        let sele = "sidechainAttached and (7-19 or 29-32 or 64-65 or 79-89 or 128-133 or 142-148)"
 
                         component.addRepresentation(
                             representation, 
@@ -62,7 +62,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                             {
                              sele: "not hetero",
                              color: clear_color,
-                             filterSele: '(7-19 or 29-32 or 64-65 or 79-89 or 128-133 or 142-145)',
+                             filterSele: '(7-19 or 29-32 or 64-65 or 79-89 or 128-133 or 142-148)',
                              surfaceType: "av",
                             //  colorScheme: "hydrophobicity",
                              scaleFactor: 1.2,
@@ -77,7 +77,7 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                              radius: 0.5}
                             );
                             //'(7-19 or 29-32 or 63-65 or 78-89 or 128-133 or 142-145)'
-                        component.autoView('(7-19 or 29-32 or 64-65 or 79-89 or 128-133 or 142-145)');
+                        component.autoView('(7-19 or 29-32 or 64-65 or 79-89 or 128-133 or 142-148)');
                     }
                 );
         } 
