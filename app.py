@@ -21,7 +21,6 @@ app = dash.Dash(
                 }],
     external_stylesheets=[dbc.themes.JOURNAL, FA],
     external_scripts=external_scripts,
-    url_base_pathname='/'
 )
 app.title = 'JRL: LatinXChem poster'
 
