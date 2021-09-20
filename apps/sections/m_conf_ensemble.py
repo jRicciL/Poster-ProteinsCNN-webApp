@@ -1,10 +1,8 @@
 import dash.html as html
 import dash.dcc as dcc
-from dash.html import Mark
-from dash.html.I import I
 import dash_bootstrap_components as dbc
 
-from dash.dependencies import Input, Output, ClientsideFunction
+from dash.dependencies import Input, Output
 from app import app
 
 import plotly.graph_objects as go
