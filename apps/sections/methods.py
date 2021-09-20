@@ -13,6 +13,7 @@ from apps.sections import m_pocket_featurization
 from apps.sections import m_md_structures
 from apps.sections import m_ensemble_docking
 from apps.sections import m_takeaway
+from apps.sections import m_cnn 
 
 # Second colum sections
 sections_objs = [
@@ -22,7 +23,7 @@ sections_objs = [
     [],
     m_ensemble_docking.col_contents,
     m_pocket_featurization.col_contents,
-    [],
+    m_cnn.col_contents,
 ]
 # ['Crystal Structures', 'MD Structures', 'Conf. Ensemble', 'Molecular Library', 'Ensemble Docking', 'Pocket Featurization', 'Convolutional Neural Network']
 
@@ -69,6 +70,7 @@ def displayTapNodeData(data):
     default_label = 'MD Structures'
     if data == None:
         return [m_takeaway.col_contents]
+        # return [m_cnn.col_contents]
     else:
         sec_name = data['label']
 
@@ -76,6 +78,8 @@ def displayTapNodeData(data):
         if sec_name == 'Molecular Library':
             sec_name = 'Ensemble Docking'
         children = sections_dict[sec_name]
+        # if sec_name == 'Ensemble Docking':
+        #     return [m_takeaway.col_contents]
     else:
         children = m_takeaway.col_contents
     return [children]

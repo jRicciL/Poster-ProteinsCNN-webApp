@@ -14,7 +14,7 @@ row_titles = dbc.Row(
            ),
        # Subtitle
        html.H3([
-           'Generation of MD-derived structures'
+           'Individual performance of each protein conformation'
            ]
        )
     ]

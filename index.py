@@ -11,7 +11,7 @@ from apps import footer
 from apps import navbar
 # Content components
 from apps.sections import conclusions, introduction, \
-                          methods, presentation
+                          methods, presentation, results
 from helpers.load_data import data_source
 
 server = app.server
@@ -31,12 +31,14 @@ app.layout = html.Div([
     Input('url', 'pathname')
     )
 def display_page(pathname):
-    if   pathname == '/' or pathname == '/presentation':
-        return presentation.layout
+    if   pathname == '/' or pathname == '/introduction':
+        return introduction.layout
     elif pathname == '/introduction':
         return introduction.layout 
     elif pathname == '/methods':
         return methods.layout
+    elif pathname == '/results':
+        return results.layout
     elif pathname == '/conclusions':
         return conclusions.layout
     else:

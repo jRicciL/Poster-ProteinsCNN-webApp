@@ -23,6 +23,7 @@ row_titles = dbc.Col(
             html.A('#LatinXChem2021', 
             href='https://twitter.com/hashtag/LatinXChem2021', 
             target = '_blank'),
+            ' 🎉 🧬🧪'
            ])
            ),
        # Subtitle
@@ -49,7 +50,8 @@ text_content_col_1 = dbc.Col(
                         [
                             html.H5(
                                 [
-                                "Briefly...",
+                                html.I(className='fas fa-robot'),
+                                " Briefly...",
                                 ], 
                             className="card-title"), 
                         ], 
@@ -58,7 +60,7 @@ text_content_col_1 = dbc.Col(
                         [
                             dcc.Markdown(
                                 [
-                                    'We implemented a machine learning  model  to predict **which protein conformations** will perform **the best** in a *virtual screening* experiment.'
+                                    'We implemented a **machine learning  model** to predict **which protein conformations** will perform **the best** in a *virtual screening* experiment.'
                                 ],
                                 className="card-text",
                             ),
@@ -69,25 +71,30 @@ text_content_col_1 = dbc.Col(
                 ]
             ),
             outline=True,
-            # className="w-80",
+            className="card-brief",
         ),
         html.H4('Structure-based Virtual Screening (SBVS)'),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'Molecular docking allows the evaluation of large numbers of small molecules to predict their interaction with a target protein.'
+                html.B(html.Mark('Molecular docking')),
+                ' allows the evaluation of large numbers of small molecules to predict their interaction with a target protein.'
             ]
         ),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'Typical docking campaigns rely on a single rigid conformation of the target protein.'
+                'Typical docking campaigns rely on a ',
+                html.B('single rigid conformation'),
+                ' of the target protein.'
             ]
         ),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'However, ignoring protein flexibility affects the accurate discrimination between true-binder and non-binder molecules.'
+                'However, ',
+                html.B('ignoring protein flexibility affects'),
+                ' the accurate discrimination between true-binder and non-binder molecules.'
             ]
         ),
     ]
@@ -98,16 +105,53 @@ text_content_col_2  = dbc.Col(
     className='row-text-content',
     lg = 5, md = 12, sm =12,
     children=[
-        html.Img(
-            alt='Virtual Screening',
-            src=app.get_asset_url('images/virtual_screening.png'),
-            className='img-fluid mt-2 p-4',
+        # html.Img(
+        #     alt='Virtual Screening',
+        #     src=app.get_asset_url('images/virtual_screening.png'),
+        #     className='img-fluid mt-2 p-4',
+        # ),
+        # html.Img(
+        #     alt='Ensemble docking',
+        #     src=app.get_asset_url('images/ensemble_docking.png'),
+        #     className='img-fluid mt-2 p-4',
+        # )
+        
+        html.Br(),
+        html.H4('Ensemble-based Docking'),
+        html.Br(),
+        dbc.Carousel(
+            items=[
+                {"key": "1", "src": 
+                    app.get_asset_url('images/virtual_screening.png')},
+                {"key": "2", "src": 
+                    app.get_asset_url('images/ensemble_docking.png')}, 
+            ],
+            id='carousel-intro',
+            controls=True,
+            # interval=True,
+            className='carousel-intro',
+            indicators=False,
         ),
-        html.Img(
-            alt='Ensemble docking',
-            src=app.get_asset_url('images/ensemble_docking.png'),
-            className='img-fluid mt-2 p-4',
-        )
+        # html.H4('Ensemble-based Docking'),
+        html.Br(),
+        html.P(
+            [
+                html.I(className='ico fas fa-chevron-right'),
+                html.B(html.Mark('Ensemble docking (ED)')), ' incorporates protein flexibility during SBVS campaigns.'
+            ]
+        ), 
+        html.P(
+           [
+           html.I(className='ico fas fa-chevron-right'), 
+            'ED consists of docking the ligands to a set of different conformations of the target protein.'
+           ], 
+       ),
+       html.P(
+           [
+            html.I(className='ico fas fa-chevron-right'),
+            'ED has been successfully applied in several studies, but critical challenges still need to be addressed.'
+           ],
+       ),
     ]
 )
 
@@ -115,25 +159,7 @@ text_content_col_3  = dbc.Col(
     className='row-text-content',
     lg = 3, md = 12, sm =12,
     children=[
-        html.H4('Ensemble-based Docking'),
-        html.P(
-            [
-                html.I(className='ico fas fa-chevron-right'),
-                'Ensemble docking (ED) incorporates protein flexibility during SBVS campaigns.'
-            ]
-        ), 
-        html.P(
-           [
-            html.I(className='ico fas fa-circle s2'),
-            'ED consists of docking the ligands to a set of different conformations of the target protein.'
-           ], className='ident-1'
-       ),
-       html.P(
-           [
-            html.I(className='ico fas fa-circle s2'),
-            'ED has been successfully applied in several studies, but critical challenges still need to be addressed.'
-           ], className='ident-1'
-       ),
+        
     #    html.P(
     #        [
     #         html.I(className='ico fas fa-circle s2'),
@@ -142,33 +168,48 @@ text_content_col_3  = dbc.Col(
     #    ),
 
     #    html.H4('But ... which conformations should we choose?'),
-       html.H4('But, how to select the best suitable conformations?'),
+    html.Br(),
+       html.H4('But, how to select the best suitable conformations?',
+        style={'color': '#DD4A4B'}),
        html.P(
             [
                 # html.I(className='ico fas fa-chevron-right'),
-                html.Em('As of today there are no known metrics that can identify which protein structure will end up being selected by ligands.'),
+                html.Em('As of today there are no known metrics that can identify which protein structure will end up being selected by ligands.', style={'color':'#155F74'}),
                 html.Br(),
                 html.B(html.A('Evangelista, et al. (2019)'))
-            ], className='text-right'
+            ], #className='text-right'
         ), 
         html.Hr(),
         html.P(
             [
                 # html.I(className='ico fas fa-chevron-right'),
-                html.Em('It remains difficult or impossible to know a priori which receptor conformations will result in an ensemble with virtual screening utility.'),
+                html.Em('It remains difficult or impossible to know a priori which receptor conformations will result in an ensemble with virtual screening utility.', style={'color':'#155F74'}),
                 html.Br(),
                 html.B(html.A('Swift, et al. (2016)'))
-            ], className='text-right'
+            ], #className='text-right'
         ), 
         html.Hr(),
         html.P(
             [
                 # html.I(className='ico fas fa-chevron-right'),
-                html.Em('Can we pick the best performing set a priori without evaluating the ability of each conformation to discriminate between known binders and nonbinders?'),
+                html.Em('Can we pick the best performing set a priori without evaluating the ability of each conformation to discriminate between known binders and nonbinders?', style={'color':'#155F74'}),
                 html.Br(),
                 html.B(html.A('Rueda, et al. (2010)'))
-            ], className='text-right'
+            ], #className='text-right'
         ), 
+         html.H4('The CDK2 protein'),
+       html.P(
+           [
+            html.I(className='ico fas fa-chevron-right'),
+            'Here, we selected the cyclin-dependent kinase 2 (CDK2) protein  as a case study.'
+           ],
+       ), 
+        html.P(
+            [
+                html.I(className='ico fas fa-circle s2'),
+                'CDK2 has been widely employed to test and validate MD and SBVS methodologies.'
+            ], className='ident-1'
+        ),
     ]
 )
 

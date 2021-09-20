@@ -8,6 +8,17 @@ import dash_cytoscape as cyto
 from app import app
 from dash.dependencies import Input, Output
 
+stylesheet_cyto = [
+    {
+            'selector': '.box',
+            'style': {
+                'background-color': 'red',
+                'line-color': 'red'
+            }
+        }
+]
+
+
 # Restart view button
 restart_view_button = dbc.Button(
     "Reset view", 
@@ -54,7 +65,8 @@ cyto_canvas = html.Div(
                 'zIndex': 10,
                 # 'margin': 'auto'
                 },
-            elements = get_cyto_elements() 
+            elements = get_cyto_elements() ,
+            # stylesheet=stylesheet_cyto
         ),
         restart_view_button
     ]

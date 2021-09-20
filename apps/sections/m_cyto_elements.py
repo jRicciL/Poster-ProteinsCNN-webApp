@@ -12,7 +12,8 @@ def get_cyto_elements():
                 'position': {'x': x, 'y': y},
                 'grabbable': False,
                 'selectable': False,
-                'locked': False
+                'locked': False,
+             
             },
             {
                 'data': {'id': 'Crys', 
@@ -20,39 +21,46 @@ def get_cyto_elements():
                 'parent': 'ProtPrep'},
                 'selected': True,
                 'grabbable': False,
-                'selectable': True
+                'selectable': True,
+                'classes': 'box'
             },
             {
                 'data': {'id': 'MD', 
                 'label': 'MD Structures',
                 'parent': 'ProtPrep'},
                 'grabbable': False,
-                'selectable': True
+                'selectable': True,
+                'classes': 'box'
             },
             {
                 'data': {'id': 'ConfEns', 
                 'label': 'Conf. Ensemble',
                 'parent': 'ProtPrep'},
                 'grabbable': False,
-                'selectable': True
+                'selectable': True,
+                'classes': 'box'
             },
             {
                 'data': {'id': 'MolLib', 
                 'label': 'Molecular Library'},
                 'grabbable': True,
-                'locked': False
+                'locked': False,
+                'classes': 'box'
             },
             {
                 'data': {'id': 'EnsDock', 
-                'label': 'Ensemble Docking'}
+                'label': 'Ensemble Docking'},
+                'classes': 'box'
             },
             {
                 'data': {'id': 'Features', 
-                'label': 'Pocket Featurization'}
+                'label': 'Pocket Featurization'},
+                'classes': 'box'
             },
             {
                 'data': {'id': 'CNN', 
-                'label': 'Convolutional Neural Network'}
+                'label': 'Convolutional Neural Network'},
+                'classes': 'box'
             },
 
             # Children nodes
@@ -145,7 +153,7 @@ def get_cyto_elements():
                 'selectable': False
             },
             {
-                'data': {'id': 'elev', 
+                'data': {'id': 'eleven', 
                         'label': 'y: Response Var.',
                         'parent': 'CNN'},
                 'position': {'x': x*2, 'y': y*8.25},
@@ -178,6 +186,20 @@ def get_cyto_elements():
             {'data': {'source': 'five', 'target': 'seven'},
                 'selectable': False}, 
             {'data': {'source': 'six', 'target': 'seven'},
+                'selectable': False}, 
+            {'data': {'source': 'five', 'target': 'eight'},
+                'selectable': False}, 
+            {'data': {'source': 'five', 'target': 'nine'},
+                'selectable': False}, 
+            {'data': {'source': 'eight', 'target': 'ten'},
+                'selectable': False}, 
+            {'data': {'source': 'nine', 'target': 'ten'},
+                'selectable': False}, 
+            {'data': {'source': 'seven', 'target': 'eleven'},
+                'selectable': False}, 
+            {'data': {'source': 'ten', 'target': 'twelve'},
+                'selectable': False}, 
+            {'data': {'source': 'eleven', 'target': 'twelve'},
                 'selectable': False}, 
     ]
     return elements

@@ -12,7 +12,7 @@ row_titles = dbc.Row(
     children= [
         # Title
        html.H2([
-           "The takeaway",
+           "The takeaway...",
            ]
            ),
        # Subtitle

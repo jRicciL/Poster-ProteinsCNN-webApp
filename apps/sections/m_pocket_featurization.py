@@ -1,5 +1,7 @@
+from dash.dcc.Markdown import Markdown
 import dash.html as html
 import dash.dcc as dcc
+from dash.html.Mark import Mark
 import dash_bootstrap_components as dbc
 
 import plotly.graph_objects as go
@@ -7,6 +9,7 @@ from helpers.plotly_conf import plotly_conf
 from helpers.load_data import get_plot_povme_tuple
 from helpers.pocket_plot import plot_povme_pockets
 
+from dash.dependencies import Input, Output
 
 # Titles
 row_titles = dbc.Row(
@@ -34,7 +37,12 @@ text_content_col = dbc.Col(
         html.P(
            [
             html.I(className='ico fas fa-chevron-right'),
-            'The ATP binding site (pocket) of the CDK2 protein was evaluated using POVME3 and AutoGrid4.'
+            'The ',
+            html.B('ATP binding site (pocket)'),
+            ' of the CDK2 protein was evaluated using ',
+            html.A('POVME3', href='https://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b00500', target='_blank'),
+            ' and ',
+            html.A('AutoGrid 4', href='http://autodock.scripps.edu/wiki/AutoGrid', target='_blank'),
            ]
        ),
     #    html.P(
@@ -58,23 +66,28 @@ text_content_col = dbc.Col(
        ),
         html.Ul(
            [
-            html.Li("With a 24x24x24 Å size."),
+            html.Li(["With a ", html.Code("24x24x24 Å"), " size."]),
             html.Li("Comprising all pocket residues"),
-            html.Li("With 1.0 Å spacing."),
+            html.Li(["With ", html.Code("1.0 Å"), " spacing."]),
            ],
            className='ident-3'
        ),
        html.P(
            [
             html.I(className='ico fas fa-circle s1'),
-            "The BINANA coloring scheme was used to identify five physicochemical properties."
+            "The ",
+            html.A("BINANA", href = 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3099006/'),
+            " coloring scheme was used to identify five physicochemical properties."
            ],
            className='ident-1'
        ),
        html.P(
            [
             html.I(className='ico fas fa-chevron-right'),
-            "AutoGrid 4 was used to calculate energy grid maps defining each pocket."
+            html.B("AutoGrid 4"),  
+            " was used to calculate ", 
+            html.Em("energy grid maps"), 
+            " defining each pocket."
            ],
        ),
        html.P(
@@ -102,7 +115,7 @@ text_content_col = dbc.Col(
        html.P(
            [
             html.I(className='ico fas fa-chevron-right'),
-            "The 3D plot shows the pocket voxelization as defined by POVME and AutoGrid."
+            html.Mark("The 3D plot"), " shows the ", html.B("pocket voxelization"), " as defined by POVME and AutoGrid."
            ],
        ),
     ]
@@ -120,11 +133,16 @@ def plot_povme():
 plot_content_col = dbc.Col(
     lg = 7, md = 12,
     children=[
-        dcc.Graph(
-                id = 'pocket-3d-plot',
-                config = plotly_conf,
-                figure = plot_povme() 
-            ),
+        dcc.Loading(
+                    id="loading-2",
+                    children=[dcc.Graph(
+                                id = 'pocket-3d-plot',
+                                config = plotly_conf,
+                                figure = plot_povme() 
+                                ),],
+                    type="circle",
+                )
+        
     ]
 )
 
