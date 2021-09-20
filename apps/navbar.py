@@ -9,12 +9,12 @@ from app import app
 
 
 url_sections = {
-    'Presentation'        : 'presentation',
+    # 'Presentation'        : 'presentation',
     'Introduction'        : 'introduction',
-    'Methods'             : 'methods',
-    'Results'             : 'results',
+    'Methods & Results'    : 'methods',
+    # 'Results'             : 'results',
     'Conclusions'         : 'conclusions',
-    'About'               : 'about'
+    # 'About'               : 'about'
 }
 
 
@@ -22,7 +22,10 @@ layout = dbc.Row(
     className = 'navbar-container',
     children = [
         dbc.Col(
-            sm =0, md = 0, lg = 2),
+            
+            sm =0, md = 0, lg = 2,
+            
+            ),
         dbc.Col(
             [
                 dbc.Nav(
