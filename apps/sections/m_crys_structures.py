@@ -239,7 +239,9 @@ mol_view_col = dbc.Col(
             style = {
                 'width': '100%', 
                 'minHeight': '515px',
-                'overflow': 'hidden'
+                'overflow': 'hidden',
+                'padding': '0',
+                'margin': '0'
                 # 'padding': '-3px',
                 # 'margin': '0'
                 }

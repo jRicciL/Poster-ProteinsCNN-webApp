@@ -10,7 +10,7 @@ def get_cyto_elements():
                 'data': {'id': 'ProtPrep', 
                 'label': 'Protein Conformational Ensemble'},
                 'position': {'x': x, 'y': y},
-                'grabbable': True,
+                'grabbable': False,
                 'selectable': False,
                 'locked': False
             },
