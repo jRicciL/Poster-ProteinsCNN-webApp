@@ -7,6 +7,9 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             v_id, 
             conf_id = '1fin',
             representation = 'cartoon') {
+
+            
+            
  
             // Get the number of canvas
             let canvas_container = document.getElementById(v_id)
@@ -35,10 +38,16 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             }
             let color = colors[conf_id] 
             let clear_color = clear_colors[conf_id]
+            let backgroundColor
+            if(v_id === 'viewport-crys-takeaway') {
+                backgroundColor = '#E1D8C3' 
+            } else {
+                backgroundColor = '#273139' 
+            }
 
             let stage = new NGL.Stage(v_id, 
                 {
-                    backgroundColor:'#273139',
+                    backgroundColor: backgroundColor,
                     zoomSpeed: 0.8,
                     rotateSpeed: 0.8,
                     fogNear: 40
@@ -47,8 +56,11 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             window.addEventListener( "resize", function( event ){
                 stage.handleResize();
             }, false );
-            
-            stage.loadFile(pdb_path)
+
+            if(v_id === 'viewport-crys-takeaway') {
+                stage.loadFile(pdb_path, { defaultRepresentation: true })  
+            } else {
+                stage.loadFile(pdb_path)
                 .then(
                     function (component) {
                         let sele = "sidechainAttached and (7-19 or 29-32 or 64-65 or 79-89 or 128-133 or 142-148)"
@@ -80,9 +92,48 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
                         component.autoView('(7-19 or 29-32 or 64-65 or 79-89 or 128-133 or 142-148)');
                     }
                 );
+            }
+            
+            
         } 
     }
 });
 
 
-    
+// create a `stage` object
+// window.dash_clientside = Object.assign({}, window.dash_clientside, {
+//     clientside2: {
+//         ngl_mol_takeaway: function (
+//             v_id, 
+//             representation = 'cartoon') {
+ 
+//             // Get the number of canvas
+//             let canvas_container = document.getElementById(v_id)
+//             let n_children = canvas_container.children.length
+
+//             // If at least one canvas already exist
+//             if (n_children > 0) {
+//                 // Remove all children before create a new element
+//                 canvas_container.textContent = '';
+//             } 
+
+//             let pdb_path = "https://raw.githubusercontent.com/jRicciL/Poster-ProteinsCNN-webApp/main/data/pdb_files/"
+//             pdb_path += '1fin'
+//             pdb_path += '_ENS.pdb'
+
+//             let stage = new NGL.Stage(v_id, 
+//                 {
+//                     backgroundColor:'#E1D8C3',
+//                     zoomSpeed: 0.8,
+//                     rotateSpeed: 0.8,
+//                     fogNear: 40
+//                 });
+            
+//             window.addEventListener( "resize", function( event ){
+//                 stage.handleResize();
+//             }, false );
+            
+//             stage.loadFile(pdb_path, { defaultRepresentation: true })
+//         } 
+//     }
+// }); 

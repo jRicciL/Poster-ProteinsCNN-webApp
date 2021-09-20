@@ -20,7 +20,7 @@ body {
     line-height: 1em;
     height: 100%;
     min-height: 100vh;
-    font-size: 16px;
+    font-size: 15px;
   }
 
 a {
@@ -82,7 +82,7 @@ p.authors-text {
 /* MARKS */
 mark {
     padding: 0px 2px;
-    background-color: rgba(150, 185, 201, 0.548);
+    background-color: rgba(252, 235, 161, 0.781);
 }
 
 .mark-red {
@@ -91,6 +91,23 @@ mark {
 
 .mark-grey {
     background-color: rgb(189, 195, 203);
+}
+
+.pill {
+    padding: 2px 4px;
+    border-radius: 4px;
+    margin-inline: 1px;
+    color: rgb(255, 243, 228);
+}
+
+.pill-red {
+    background-color: #f46d6d;
+}
+.pill-orange {
+    background-color: #d3813e;
+}
+.pill-blue {
+    background-color: #367aa1;
 }
 
 /* Ensembles list */
@@ -147,6 +164,46 @@ mark {
     margin-left: -0.8rem;
     padding-right: 0.2rem;
     opacity: 0.6;
+}
+
+.ident-1 {
+    /* font-size: 0.9rem; */
+    padding-left: 1.4rem;
+}
+
+.ident-2 {
+    /* font-size: 0.9rem; */
+    padding-left: 2.8rem;
+}
+
+.ident-3 {
+    /* font-size: 0.9rem; */
+    padding-left: 3.6rem;
+}
+
+.ico.fa-circle.s1 {
+    font-size: 0.7rem;
+}
+
+.ico.fa-circle.s2 {
+    font-size: 0.5rem;
+}
+
+.h5-header {
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 0.3rem;
+}
+
+.card {
+    margin: 0.5rem;
+}
+
+.card-body {
+    padding: 0.5rem 1rem;
+    background-color: var(--background-canvas);
 }
 
 /* CONTENT */
@@ -278,6 +335,12 @@ mark {
     /* text-justify: inter-word; */
 }
 
+.row-text-content h4 {
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+}
 
 
 

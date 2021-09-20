@@ -11,3 +11,6 @@ def get_df_md():
 
 def get_df_dk_performances():
     return data_source['df_dk_performances']
+
+def get_plot_povme_tuple():
+    return data_source['plot_povme_tuple']
