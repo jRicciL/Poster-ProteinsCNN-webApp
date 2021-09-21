@@ -58,7 +58,7 @@ cyto_canvas = html.Div(
             style = {
                 # 'position': 'absolute',
                 'width': '100%',
-                'minHeight': '560px',
+                'minHeight': '550px',
                 # 'maxHeight': '850px',
                 # 'height': '550px',
                 # 'max-height': 
@@ -93,11 +93,12 @@ row_markdown = dbc.Row(
     children= [
        html.H2('Methodology Workflow'),
        html.P([
-                html.I(className="fas fa-hand-point-down"),
-                ' Click on a ',
-                html.Mark('box', 
-                            className='mark-red'),
-                ' below to see details about the workflow.'
+                html.I(className="fas fa-hand-point-down icon-hand-cyto"),
+                ' ',
+                html.Mark([' ', html.B('Click'),' on a ']),
+                html.Mark(html.B('box'), 
+                            className='mark-red-cyto'),
+                html.Mark(' below to see details about the workflow.')
                 ],
             style={
                 'justifyContent': 'center',
