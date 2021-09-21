@@ -10,6 +10,7 @@ text_content_col_1  = dbc.Col(
     className='row-text-content',
     lg = 4, md = 12, sm =12,
     children=[
+        html.Br(),
        html.H3('Conclusions'),
        html.Hr(),
        html.P(
@@ -24,16 +25,17 @@ text_content_col_1  = dbc.Col(
             [
                 html.I(className='ico fas fa-chevron-right'),
                 'Conformations ',
-                html.B('structurally similar'),
-                html.Mark(html.B((' do not ')),
-                html.B('necessarily have a '),
+                html.B('structurally similar '),
+                html.Mark(html.B('do not')),
+                html.B(' necessarily have a '),
                 'similar SBVS performance.'
             ]
         ),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'A CNN binary classifier was implemented using POVME and AutoGrid voxelizations to predict the SBVS performance of each CDK2 conformation.'
+                html.B('A CNN binary classifier'),
+                ' was implemented using POVME and AutoGrid voxelizations to predict the SBVS performance of each CDK2 conformation.'
             ]
         ),
         html.P(
@@ -75,12 +77,13 @@ text_content_col_2  = dbc.Col(
     className='row-text-content',
     lg = 4, md = 12, sm =12,
     children=[
+        html.Br(),
         html.H3('Limitations and perspectives'),
         html.Hr(),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'This has been just an exploratory analysis and there are still many limitations:'
+                html.B('This has been just an exploratory analysis and there are still many limitations:')
             ]
         ),
         html.P(
@@ -127,18 +130,23 @@ text_content_col_3  = dbc.Col(
     className='row-text-content text-align-center',
     lg = 4, md = 12, sm =12,
     children=[
+        html.Br(),
         html.H3('Acknowledgements'),
         html.Hr(),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'The #LatinXChem community: organizers and attendees.'
+                'The ',
+                html.A('#LatinXChem2021', 
+                    href='https://twitter.com/hashtag/LatinXChem2021', 
+                    target = '_blank'),
+                ' community: organizers and attendees.'
             ]
         ), 
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'My advisors:'
+                html.B('My advisors:')
             ]
         ),
         html.P(
@@ -162,13 +170,24 @@ text_content_col_3  = dbc.Col(
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
+                'To ',
+                html.B('CICESE'),
+                ', ',
+                html.B('UNAM'),
+                ', and ',
+                html.B('CONACyT.')
+            ]
+        ), 
+        html.P(
+            [
+                html.I(className='ico fas fa-chevron-right'),
                 'To all developers and researchers who have provided us with excellent tools and knowledge to carry out our research.'
             ]
         ), 
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'Web application available thanks to:',
+                'This web application available thanks to: ',
                 html.A('Python',
                     href='https://www.python.org/',
                     target='_blank'
