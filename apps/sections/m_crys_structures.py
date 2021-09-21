@@ -13,12 +13,12 @@ row_titles = dbc.Row(
     children= [
         # Title
        html.H2([
-           'Protein Conformational Ensemble',
+           'CDK2 Crystallographic Structures',
            ]
            ),
        # Subtitle
        html.H3([
-           'Crystal Structures']
+           '402 structures from the PDB']
        )
     ]
 )
