@@ -6,7 +6,7 @@ from app import app
 # HEADER
 #***********
 text_title = 'Druggability prediction of protein conformations using convolutional neural networks'
-authors_text = [html.A('Joel Ricci-López', href = 'https://twitter.com/RicciBW', target='_blank'), ', ',
+authors_text = [html.A('Joel Ricci-López', href = 'https://www.linkedin.com/in/joel-ricci-lopez/', target='_blank'), ', ',
                 html.A('Sergio. A. Águila', href='https://aguilalab.com/sergio-aguila', target='_blank'),  ', ',
                 html.A('Carlos A. Brizuela', href='https://www.cicese.edu.mx/investigacion/personal_academico/913', target='_blank')]
 
