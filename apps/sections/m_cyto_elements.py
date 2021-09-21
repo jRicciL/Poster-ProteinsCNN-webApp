@@ -19,7 +19,7 @@ def get_cyto_elements():
                 'data': {'id': 'Crys', 
                 'label': 'Crystal Structures',
                 'parent': 'ProtPrep'},
-                'selected': True,
+                # 'selected': True,
                 'grabbable': False,
                 'selectable': True,
                 'classes': 'box'
