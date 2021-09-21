@@ -7,7 +7,7 @@ from app import app
 #***********
 text_title = 'Druggability prediction of protein conformations using convolutional neural networks'
 authors_text = [html.A('Joel Ricci-López', href = 'https://www.linkedin.com/in/joel-ricci-lopez/', target='_blank'), ', ',
-                html.A('Sergio. A. Águila', href='https://aguilalab.com/sergio-aguila', target='_blank'),  ', ',
+                html.A('Sergio. A. Águila', href='https://aguilalab.com/sergio-aguila', target='_blank'),  ', and ',
                 html.A('Carlos A. Brizuela', href='https://www.cicese.edu.mx/investigacion/personal_academico/913', target='_blank')]
 
 title = dbc.Col([
@@ -22,7 +22,7 @@ title = dbc.Col([
 logo_1 = dbc.Col([
         html.A(html.Img(
         alt='CICESE logo',
-        src=app.get_asset_url('images/cicese_logo.png'),
+        src=app.get_asset_url('images/logoCicese.svg'),
         className='logo-img logo-left',
         ), href='https://www.cicese.edu.mx/', target='_blank')
     ],
@@ -32,7 +32,7 @@ logo_1 = dbc.Col([
 logo_2 = dbc.Col([
         html.A(html.Img(
         alt='CNyN logo',
-        src=app.get_asset_url('images/cnyn_logo.png'),
+        src=app.get_asset_url('images/logoCnyn.svg'),
         className='logo-img logo-right',
         ),
         href='https://www.cnyn.unam.mx/', target='_blank'
