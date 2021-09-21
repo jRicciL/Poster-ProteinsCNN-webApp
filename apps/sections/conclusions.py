@@ -160,12 +160,13 @@ text_content_col_3  = dbc.Col(
 
 
 thanks_row = dbc.Col([
-        html.Img(
+        html.A(html.Img(
         alt='LatinXchem logo',
         src=app.get_asset_url('images/latinchem_logo.png'),
-        className='img-fluid',
-        style={'max-height': '80px'}
+        className='logo-img',
         ),
+        href='https://www.latinxchem.org/', target='_blank'
+       ), 
         html.H3(
            html.Span([
            'Gracias ',

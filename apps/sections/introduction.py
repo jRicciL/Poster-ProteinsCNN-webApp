@@ -28,11 +28,13 @@ row_titles = dbc.Col(
            ),
        # Subtitle
        html.Br(),
-       html.Img(
+       html.A(html.Img(
         alt='LatinXchem logo',
         src=app.get_asset_url('images/latinchem_logo.png'),
         className='logo-img',
         ),
+        href='https://www.latinxchem.org/', target='_blank'
+       ),
        html.Hr()
     ]
 )
@@ -68,11 +70,13 @@ text_content_col_1 = dbc.Col(
                        
                     ), 
                     
-                ]
+                ],
+                className="card-brief-body",
             ),
             outline=True,
             className="card-brief",
         ),
+        html.Br(),
         html.H4('Structure-based Virtual Screening (SBVS)'),
         html.P(
             [
@@ -133,23 +137,29 @@ text_content_col_2  = dbc.Col(
             indicators=False,
         ),
         # html.H4('Ensemble-based Docking'),
-        html.Br(),
+        # html.Br(),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                html.B(html.Mark('Ensemble docking (ED)')), ' incorporates protein flexibility during SBVS campaigns.'
+                html.B(html.Mark('Ensemble docking (ED)', className='mark-blue')), ' incorporates protein flexibility during SBVS campaigns.'
             ]
         ), 
         html.P(
            [
            html.I(className='ico fas fa-chevron-right'), 
-            'ED consists of docking the ligands to a set of different conformations of the target protein.'
+            'ED consists of ',
+            html.B('docking the ligands'),
+            ' to a set of ',
+            html.B('different conformations'),
+            ' of the target protein.'
            ], 
        ),
        html.P(
            [
             html.I(className='ico fas fa-chevron-right'),
-            'ED has been successfully applied in several studies, but critical challenges still need to be addressed.'
+            'ED has been ',
+            html.B('successfully applied'),
+            ' in several studies, but critical challenges still need to be addressed.'
            ],
        ),
     ]
@@ -169,46 +179,67 @@ text_content_col_3  = dbc.Col(
 
     #    html.H4('But ... which conformations should we choose?'),
     html.Br(),
-       html.H4('But, how to select the best suitable conformations?',
-        style={'color': '#DD4A4B'}),
+       html.H4('But, how to select the best suitable conformations?'),
        html.P(
             [
                 # html.I(className='ico fas fa-chevron-right'),
-                html.Em('As of today there are no known metrics that can identify which protein structure will end up being selected by ligands.', style={'color':'#155F74'}),
+                html.Em('As of today there are no known metrics that can identify which protein structure will end up being selected by ligands.'),
                 html.Br(),
-                html.B(html.A('Evangelista, et al. (2019)'))
+                html.B(
+                    [
+                        html.I(className='fas fa-book'), ' ',
+                        html.A('Evangelista, et al. (2019)',
+                    href='https://pubs.acs.org/doi/10.1021/acs.jpcb.8b11491',
+                    target='_blank'
+                    )]
+                )
             ], #className='text-right'
         ), 
         html.Hr(),
         html.P(
             [
                 # html.I(className='ico fas fa-chevron-right'),
-                html.Em('It remains difficult or impossible to know a priori which receptor conformations will result in an ensemble with virtual screening utility.', style={'color':'#155F74'}),
+                html.Em('It remains difficult or impossible to know a priori which receptor conformations will result in an ensemble with virtual screening utility.'),
                 html.Br(),
-                html.B(html.A('Swift, et al. (2016)'))
+                html.B(
+                    [
+                        html.I(className='fas fa-book'), ' ',
+                        html.A(' Swift, et al. (2016)',
+                    href='https://pubs.acs.org/doi/10.1021/acs.jcim.5b00684',
+                    target='_blank'
+                    )]
+                )
             ], #className='text-right'
         ), 
         html.Hr(),
         html.P(
             [
                 # html.I(className='ico fas fa-chevron-right'),
-                html.Em('Can we pick the best performing set a priori without evaluating the ability of each conformation to discriminate between known binders and nonbinders?', style={'color':'#155F74'}),
+                html.Em('Can we pick the best performing set a priori without evaluating the ability of each conformation to discriminate between known binders and nonbinders?'),
                 html.Br(),
-                html.B(html.A('Rueda, et al. (2010)'))
+                html.B([
+                    html.I(className='fas fa-book'), ' ',
+                    html.A(' Rueda, et al. (2010)',
+                    href='https://pubs.acs.org/doi/10.1021/ci9003943',
+                    target='_blank'
+                )]
+                )
             ], #className='text-right'
         ), 
          html.H4('The CDK2 protein'),
        html.P(
            [
             html.I(className='ico fas fa-chevron-right'),
-            'Here, we selected the cyclin-dependent kinase 2 (CDK2) protein  as a case study.'
+            'Here, we selected the ',
+            html.Span(['cyclin-dependent kinase 2 (', html.Mark('CDK2'), ')']),
+            ' protein  as a case study.'
            ],
        ), 
         html.P(
             [
                 html.I(className='ico fas fa-circle s2'),
                 'CDK2 has been widely employed to test and validate MD and SBVS methodologies.'
-            ], className='ident-1'
+            ], 
         ),
     ]
 )
