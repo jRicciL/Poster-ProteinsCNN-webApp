@@ -43,8 +43,13 @@ h1.title-text {
     color: var(--orange)
 }
 
-p.authors-text a {
+p.authors-text {
     font-size: 0.9rem;
+    color: var(--blue-light);
+}
+
+p.authors-text a {
+    /* font-size: 0.9rem; */
     color: var(--blue-light);
 }
 
@@ -107,8 +112,38 @@ mark {
     background-color: rgba(252, 235, 161, 0.781);
 }
 
+.mark-red-cyto {
+    background-color: #EEEEEE;
+    border: solid 1px #b4b4b4;
+}
+
+.icon-hand-cyto{
+    font-size: 1.1rem;
+    padding: 0;
+    margin: 0;
+    color: #000000;
+}
+
+span.intro-col3-title-mark {
+    position: relative;
+    color: black;
+}
+
+span.intro-col3-title-mark:after {
+    background-color: rgb(173, 250, 255);
+    content: " ";
+    position: absolute;
+    height: 20%;
+    left: 0;
+    top: 65%;
+    margin-left: -0.1rem;
+    z-index: -1;
+    margin-bottom: -0.2rem;
+    width: calc(100% + 0.2rem);
+}
+
 .mark-red {
-    background-color: rgb(221, 167, 167);
+    background-color: rgb(249, 187, 187);
 }
 
 .mark-grey {
@@ -405,16 +440,18 @@ mark {
 }
 
 .carousel-intro {
-    background-color: var(--background);
-    height: 340px;
+    background-color: var(--background-canvas);
+    /* height: 340px; */
     padding: 1rem;
     margin: 0;
     /* display: inline-block; */
     border-radius: 8px;
+    border: solid 1px #BDBAAD;
     /* vertical-align: middle; */
     /* left: 50%;
     top: 50%; */
 }
+
 
 #slide-number {
     margin: auto;
