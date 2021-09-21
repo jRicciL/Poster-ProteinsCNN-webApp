@@ -143,6 +143,13 @@ mark {
 #page-content > div > div.row-text-content.col-sm-12.col-md-12.col-lg-3 > p > em {
     font-family: "Times New Roman", Times, serif;
     padding-inline: 0;
+    color: #155F74;
+}
+
+#page-content > div > div.row-text-content.col-sm-12.col-md-12.col-lg-3 > p > b {
+    font-family: "Times New Roman", Times, serif;
+    padding-inline: 0;
+    /* float: right; */
 }
 
 
@@ -376,9 +383,16 @@ mark {
 
 .card-brief {
     background-color: #D8D5C6;
+    margin-left: 0;
 }
 
-.carousel {
+.card-brief-body {
+    /* background-color: #D8D5C6; */
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.carousel-cnn {
     background-color: white;
     height: 340px;
     padding: 1rem;
@@ -390,8 +404,8 @@ mark {
     top: 50%; */
 }
 
-.carousel-intro.slide {
-    background-color: rgb(197, 177, 177);
+.carousel-intro {
+    background-color: var(--background);
     height: 340px;
     padding: 1rem;
     margin: 0;

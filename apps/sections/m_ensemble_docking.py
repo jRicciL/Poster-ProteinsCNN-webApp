@@ -20,18 +20,40 @@ row_titles = dbc.Row(
     ]
 )
 
-# All Content
-row_content = dbc.Row(
-    children=[
-        # Column 1
-        # text_content_col_1,
-        # # Column 2
-        # text_content_col_2 
+# Text content
+row_texts = dbc.Row(
+    className='row-text-content',
+    children= [
+       dbc.Col(
+           lg=6, md=6, sm=12,
+           children=[
+             'ola'
+           ]
+       ),
+       dbc.Col(
+           lg=6, md=6, sm=12,
+           children=[
+
+           ]
+           
+       )
     ]
 )
 
 
+
+# All Content
+# row_content = dbc.Row(
+#     children=[
+#         # Column 1
+#         text_content_col_1,
+#         # # Column 2
+#         # text_content_col_2 
+#     ]
+# )
+
+
 col_contents = [
    row_titles,
-   row_content 
+   row_texts 
 ]

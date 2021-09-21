@@ -75,9 +75,9 @@ def displayTapNodeData(data):
         sec_name = data['label']
 
     if sec_name in elements_labels:
-        if sec_name == 'Molecular Library' or \
-            sec_name == 'Ensemble Docking':
-            sec_name = 'Crystal Structures' 
+        if sec_name == 'Molecular Library':
+            sec_name = 'Ensemble Docking'
+            # sec_name = 'Crystal Structures' 
         children = sections_dict[sec_name]
         # if sec_name == 'Ensemble Docking':
         #     return [m_takeaway.col_contents]

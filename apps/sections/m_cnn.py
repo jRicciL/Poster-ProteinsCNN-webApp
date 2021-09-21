@@ -109,7 +109,7 @@ col_card_slider = dbc.Col(
             id='carousel',
             controls=False,
             interval=False,
-            className='img-fluid',
+            className='img-fluid carousel-cnn',
             indicators=False,
         ),
         dbc.RadioItems(
