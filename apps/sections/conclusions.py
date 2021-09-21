@@ -15,13 +15,19 @@ text_content_col_1  = dbc.Col(
        html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'A set of 60,000 conformations of CDK2 were generated using different MD protocols.'
+                'A set of ', 
+                html.B('60,000 conformations'),
+                ' of CDK2 were generated using different MD protocols.'
             ]
         ),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
-                'Conformations relatively similar not necessarily have a similar SBVS performance.'
+                'Conformations ',
+                html.B('structurally similar'),
+                html.Mark(html.B((' do not ')),
+                html.B('necessarily have a '),
+                'similar SBVS performance.'
             ]
         ),
         html.P(
@@ -29,6 +35,32 @@ text_content_col_1  = dbc.Col(
                 html.I(className='ico fas fa-chevron-right'),
                 'A CNN binary classifier was implemented using POVME and AutoGrid voxelizations to predict the SBVS performance of each CDK2 conformation.'
             ]
+        ),
+        html.P(
+            [
+                html.I(className='ico fas fa-chevron-right'),
+                html.B("The CNN with the best performance:")
+            ], 
+        ),
+        html.P(
+            [
+                html.I(className='ico fas fa-circle s2'),
+                html.Mark('POVME', className='pill pill-blue'), 
+                '+', 
+                html.Mark('AutoGrid',  className='pill pill-red'),
+            ], className='ident-1'
+        ),
+        html.P(
+            [
+                html.I(className='ico fas fa-circle s2'),
+                html.B("Validation"), " set: ", html.Code("0.83 AUC-ROC"),
+            ], className='ident-2'
+        ),
+        html.P(
+            [
+                html.I(className='ico fas fa-circle s2'),
+                html.B("Testing"), " set: ", html.Code("0.87 AUC-ROC"),
+            ], className='ident-2'
         ),
         html.P(
             [
@@ -69,12 +101,12 @@ text_content_col_2  = dbc.Col(
                 'We followed a classification approach, a regression model could be more suitable for this study.'
             ], className='ident-1'
         ),
-        html.P(
-            [
-                html.I(className='ico fas fa-circle s2'),
-                "There are still many hyperparameters to test and evaluate in order to improve the ML model's performance."
-            ], className='ident-1'
-        ),
+        # html.P(
+        #     [
+        #         html.I(className='ico fas fa-circle s2'),
+        #         "There are still many hyperparameters to test and evaluate in order to improve the ML model's performance."
+        #     ], className='ident-1'
+        # ),
         html.P(
             [
                 html.I(className='ico fas fa-circle s2'),
