@@ -137,7 +137,7 @@ text_content_col_2  = dbc.Col(
             indicators=False,
         ),
         # html.H4('Ensemble-based Docking'),
-        # html.Br(),
+        html.Hr(),
         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
@@ -179,7 +179,19 @@ text_content_col_3  = dbc.Col(
 
     #    html.H4('But ... which conformations should we choose?'),
     html.Br(),
-       html.H4('But, how to select the best suitable conformations?'),
+       html.H4(
+           [
+               html.Span('But, '),
+               html.Span('how to select',
+           className='intro-col3-title-mark'),
+                html.Span(' the best ',
+           className='intro-col3-title-mark'),
+           html.Span('suitable ',
+           className='intro-col3-title-mark'),
+           html.Span('conformations?',
+           className='intro-col3-title-mark'),
+           ]
+           ),
        html.P(
             [
                 # html.I(className='ico fas fa-chevron-right'),
