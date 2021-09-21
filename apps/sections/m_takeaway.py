@@ -78,7 +78,11 @@ summary_col = dbc.Col(
                             html.I(className='fas fa-long-arrow-alt-right'),
                             ' ',
                             html.Code("1,200 molecules"),
-                            " protein conformations",
+                            html.Br(),
+                            html.I(className='fas fa-long-arrow-alt-right'), 
+                            " ",
+                            html.Code("1,828,800 docking runs"),
+                            "."
                         ],
                         className="card-text",
                     ),

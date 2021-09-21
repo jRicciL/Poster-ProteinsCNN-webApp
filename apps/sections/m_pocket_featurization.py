@@ -86,36 +86,54 @@ text_content_col = dbc.Col(
             html.I(className='ico fas fa-chevron-right'),
             html.B("AutoGrid 4"),  
             " was used to calculate ", 
-            html.Em("energy grid maps"), 
+            html.Mark(html.Em("energy grid maps")), 
             " defining each pocket."
            ],
        ),
        html.P(
            [
             html.I(className='ico fas fa-circle s1'),
-            "Each energy map consisted of a three-dimensional lattice where each voxel stores the energy of a 'probe' atom  regarding the protein atoms."
+            "Each ",
+            html.B("energy map"),
+            ": ", 
+            html.I(className='fas fa-long-arrow-alt-right'),
+            " a three-dimensional lattice where each voxel stores the energy of a 'probe' atom regarding the protein atoms."
            ],
            className='ident-1'
        ),
        html.Ul(
            [
-            html.Li("Three atom types ('A', 'HD', 'OA') maps"),
-            html.Li("An electrostatic ('e') map"),
-            html.Li("A desolvation ('d') map."),
+            html.Li(["Three atom types (", 
+            html.Code("'A'"), 
+            ", ",
+            html.Code("'HD'"),
+            ", ",
+            html.Code("'OA'"),
+            ") maps"]),
+            html.Li(["An electrostatic (",
+                html.Code("'e'"),
+                ") map"]),
+            html.Li(["A desolvation (",
+                html.Code("'d'"),
+                ") map."]),
            ], 
            className='ident-3'
        ),
        html.P(
            [
             html.I(className='ico fas fa-circle s1'),
-            "The spacing, center and size of the grid box was the same as POVME's."
+            "The same ",
+            html.B("spacing, center,"),
+            " and ",
+            html.B("size"), 
+            " as POVME's."
            ],
            className='ident-1'
        ),
        html.P(
            [
             html.I(className='ico fas fa-chevron-right'),
-            html.Mark("The 3D plot"), " shows the ", html.B("pocket voxelization"), " as defined by POVME and AutoGrid."
+            html.Mark("The 3D plot"), " shows the ", html.B("pocket voxelization"), " as defined by POVME (only the four representative conformations are shown: CRYS and MIN)."
            ],
        ),
     ]
