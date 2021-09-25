@@ -109,7 +109,7 @@ p.authors-text a {
 /* MARKS */
 mark {
     padding: 0px 2px;
-    background-color: rgba(252, 235, 161, 0.781);
+    background-color: #FAD5A9 /*rgba(252, 235, 161, 0.781);*/
 }
 
 .mark-red-cyto {
