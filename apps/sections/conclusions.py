@@ -180,6 +180,24 @@ text_content_col_3  = dbc.Col(
         ), 
         html.P(
             [
+                html.I(className='ico fas fa-circle s2'),
+                html.Code("CONACYT grant A1-S-20638"), 
+            ], className='ident-1'
+        ),
+        html.P(
+            [
+                html.I(className='ico fas fa-circle s2'),
+                html.Code("LANCAD-UNAM-DGTIC-286 grant"),
+            ], className='ident-1'
+        ),
+        html.P(
+            [
+                html.I(className='ico fas fa-circle s2'),
+                html.Code("PAPIIT-DGAPA-UNAM-IG200320 grant"),
+            ], className='ident-1'
+        ),
+        html.P(
+            [
                 html.I(className='ico fas fa-chevron-right'),
                 'To all developers and researchers who have provided us with excellent tools and knowledge to carry out our research.'
             ]
