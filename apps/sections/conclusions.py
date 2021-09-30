@@ -89,7 +89,7 @@ text_content_col_2  = dbc.Col(
         html.P(
             [
                 html.I(className='ico fas fa-circle s2'),
-                'The dataset was relatively limited with only 1,524 conformations.'
+                'The dataset was relatively small, limited to only 1,524 conformations.'
             ], className='ident-1'
         ),
         html.P(
