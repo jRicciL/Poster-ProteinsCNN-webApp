@@ -12,9 +12,10 @@ row_titles = dbc.Row(
     children= [
         # Title
        html.H2([
-           "The takeaway...",
+           "Methods: Key takeaways",
            ]
            ),
+        html.Hr(),
        # Subtitle
     #    html.H3([
     #        'Summary of the methodology'
