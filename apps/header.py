@@ -24,7 +24,7 @@ logo_1 = dbc.Col([
         alt='CICESE logo',
         src=app.get_asset_url('images/logoCicese.svg'),
         className='logo-img logo-left',
-        ), href='https://www.cicese.edu.mx/', target='_blank')
+        ), href='https://www.cicese.edu.mx/', target='_blank'),
     ],
     className = 'logo text-center',
     xs = 0, sm = 1, md = 2, lg = 1

@@ -8,9 +8,6 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             conf_id = '1fin',
             representation = 'cartoon') {
 
-            
-            
- 
             // Get the number of canvas
             let canvas_container = document.getElementById(v_id)
             let n_children = canvas_container.children.length
