@@ -15,7 +15,7 @@ row_titles = dbc.Row(
            "Methods: Key takeaways",
            ]
            ),
-        html.Hr(),
+        # html.Hr(),
        # Subtitle
     #    html.H3([
     #        'Summary of the methodology'
@@ -105,7 +105,12 @@ summary_col = dbc.Col(
                     html.P(
                         [
                             html.Code("AUC-ROC"),
-                            ' as the virtual screening performance metric.',
+                            ' as the virtual screening performance metric ',
+                            html.I(className='fas fa-long-arrow-alt-right'),
+                            ' ',
+                            html.Code("AUC-ROC > 0.7"),
+                            ' ',
+                            html.Code("Druggable")
                         ],
                         className="card-text",
                     ),
@@ -126,7 +131,7 @@ summary_col = dbc.Col(
                     html.Hr(style={'margin': '0'}),
                     html.P(
                         [
-                            html.Code("POVME 3"),
+                            html.Code("POVME3"),
                             ' and ',
                             html.Code("AutoGrid"),
                             ' to evaluate the 3D properties of the binding shape.',
