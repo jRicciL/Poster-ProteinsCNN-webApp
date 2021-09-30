@@ -6,13 +6,18 @@ import dash_bootstrap_components as dbc
 #***********
 layout = html.Footer(
     [
-        html.A('@Ricci-López',
+        html.A(html.I(className='fab fa-github'),
         href='https://github.com/jRicciL',
         target='_blank'),
-        ' ',
+        '    ',
         html.A(html.I(className='fab fa-linkedin'),
         href='https://www.linkedin.com/in/joel-ricci-lopez/',
-        target='_blank')
+        target='_blank'),
+        '    ',
+        html.A(html.I(className='fab fa-twitter'),
+        href='https://twitter.com/RicciBW',
+        target='_blank'),
+        ' ',
     ], 
     className='page-footer'
 )
