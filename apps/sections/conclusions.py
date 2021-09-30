@@ -196,10 +196,21 @@ text_content_col_3  = dbc.Col(
                 html.Code("PAPIIT-DGAPA-UNAM-IG200320 grant"),
             ], className='ident-1'
         ),
-        html.P(
+         html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
                 'To all developers and researchers who have provided us with excellent tools and knowledge to carry out our research.'
+            ]
+        ),        html.P(
+            [
+                html.I(className='ico fas fa-chevron-right'),
+                html.B("Poster's source code: "),
+                html.A([html.B('GitHub '), 
+                    html.I(className='fab fa-github-alt'),
+                ],
+                href='https://github.com/jRicciL/Poster-ProteinsCNN-webApp',
+                target='_blank'
+                )
             ]
         ), 
         html.P(
