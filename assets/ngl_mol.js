@@ -58,7 +58,9 @@ window.dash_clientside = Object.assign({}, window.dash_clientside, {
             }, false );
 
             if(v_id === 'viewport-crys-takeaway') {
-                stage.loadFile(pdb_path, { defaultRepresentation: true })  
+                stage.loadFile(pdb_path, { defaultRepresentation: true }).then(function(c) {
+                    stage.animationControls.spinComponent(c, [0,1,0])
+                  }) 
             } else {
                 stage.loadFile(pdb_path)
                 .then(
