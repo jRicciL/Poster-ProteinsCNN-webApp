@@ -12,6 +12,7 @@ def get_cyto_elements():
                 'position': {'x': x, 'y': y},
                 'grabbable': False,
                 'selectable': False,
+                'selected': True,
                 'locked': False,
              
             },
