@@ -7,6 +7,7 @@ from app import app
 
 import plotly.graph_objects as go
 from helpers.load_data import get_df_crys_prot
+from helpers.load_data import get_df_md
 from helpers.plotly_conf import plotly_conf
 from helpers.mds_plot import get_mds_layout
 from helpers.mds_plot import add_CRYS_mds_trace
@@ -159,7 +160,8 @@ def get_default_mds_plot(
 def update_mds_plot(
         fig_mds_dict,
         atoms_subset = 'sec',
-        switches_crys_ensembles_vals = [1, 0, 0] # Determine which crys draw
+        switches_crys_ensembles_vals = [1, 0, 0], # Determine which crys draw
+        switches_md_ensembles_vals = []
     ):
     df_prot_data = get_df_crys_prot()
     fig_mds = go.Figure(fig_mds_dict)
@@ -194,6 +196,23 @@ def update_mds_plot(
                 f'x_min_{atoms_subset}', 
                 f'y_min_{atoms_subset}'
             )
+    # Add MD conformations topology
+    if len(switches_md_ensembles_vals) == 1:
+        df_md = get_df_md() 
+        fig_mds.add_trace(
+            go.Histogram2dContour(
+                x = df_md[f'x_dm_{atoms_subset}'],
+                y = df_md[f'y_dm_{atoms_subset}'],
+                hoverinfo='skip',
+                showlegend=True,
+                name = 'MD-confs.',
+                autocontour = False,
+                colorscale = 'Spectral_r',
+                        ncontours = 25, histnorm = 'density',
+                        showscale = False, line = {'width': 2},
+                        contours = {'type': 'levels',  'coloring': 'lines'},
+            )
+        )
 
     # Always add the reference labels at the end
     ref_pdb_ids = ['1fin', '4fku', '3pxf', '5a14']
@@ -234,7 +253,7 @@ radioitems_prot_section = dbc.FormGroup(
 # Protein Ensemble Groups
 switches_crys_ensembles = dbc.FormGroup(
     [
-        dbc.Label(html.B("CDK2 CRYS conformations:")),
+        dbc.Label(html.B("CRYS conformations:")),
         dbc.Checklist(
             options=[
                 {"label": "CRYS", "value": 'crys', "disabled": True},
@@ -249,6 +268,21 @@ switches_crys_ensembles = dbc.FormGroup(
     ]
 )
 
+# MD Conformation topology plot
+switches_md_ensembles = dbc.FormGroup(
+    [
+        dbc.Label(html.B("MD conformations:")),
+        dbc.Checklist(
+            options=[
+                {"label": "MD conformations", "value": True},
+            ],
+            value=[],
+            id="switches-md-ens",
+            switch=True,
+        ),
+    ]
+)
+
 row_plot = dbc.Row(
     # className='row-text-content',
     children=[
@@ -257,7 +291,8 @@ row_plot = dbc.Row(
             id='mds-ensemble-inputs',
             children=[
                 radioitems_prot_section,
-                switches_crys_ensembles 
+                switches_crys_ensembles,
+                switches_md_ensembles 
             ]
         ),
         dbc.Col(
@@ -292,12 +327,17 @@ col_contents = [
         Input('mds-ensemble-plot', 'figure'),
         Input('radioitems-prot-section', 'value'),
         Input('switches-crys-ens', 'value'),
+        Input('switches-md-ens', 'value'),
     ]
 )
 def render_mds_plot_methods(fig, 
             atoms_subset, 
-            switches_crys_ensembles_vals):
-    new_fig = update_mds_plot(fig, 
+            switches_crys_ensembles_vals,
+            switches_md_ensembles_vals 
+            ):
+    new_fig = update_mds_plot(
+            fig, 
             atoms_subset, 
-            switches_crys_ensembles_vals) 
+            switches_crys_ensembles_vals,
+            switches_md_ensembles_vals) 
     return [new_fig] 
