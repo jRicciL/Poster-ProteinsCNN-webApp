@@ -120,7 +120,6 @@ def plot_povme_pockets(X,
     n_channels += 1
     for i in range(n_channels):
         fig.data[i].visible = True
-    print(len(fig.data))
 
     steps = []
     for i in range(n_pkts):
