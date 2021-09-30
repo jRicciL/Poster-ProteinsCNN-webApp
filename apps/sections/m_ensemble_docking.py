@@ -44,7 +44,7 @@ row_texts = dbc.Row(
                     'Conformations with ',
                     html.Code(html.Mark('AUC ROC > 0.7')),
                     ' were labeled as ',
-                    html.Mark('"Druggables".', className='pill pill-red')
+                    html.Mark('"Druggable"', className='pill pill-red')
                 ], className='ident-1'
             ),
            ]
