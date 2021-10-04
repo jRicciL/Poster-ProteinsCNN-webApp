@@ -21,3 +21,9 @@ This repository includes the source code of our *interactive scientific poster* 
 - **Sergio A. Aguila**: *CNyN, UNAM, Ensenada, México*
 - **Carlos A. Brizuela**: *CICESE Research Center, Ensenada, México*
 
+## ✅ Acknowledgements
+
+- LANCAD-UNAM-DGTIC-286 and PAPIIT-DGAPA-UNAM-IG200320grants
+- **CAB**  and  **JRL**  acknowledge  the  support  of  CONACyT  under  grant  A1-S-20638
+- **JRL**  was  supported  by  the  Programa  de  Doctorado  en  Nanociencias  at  CICESE  and  byCONACyT.
+- This paper participated in the [#LatinXChem](https://twitter.com/LatinXChem) virtual conference (2021). Thanks to [LatinXChem](https://www.latinxchem.org/) for promoting science across the world. 
