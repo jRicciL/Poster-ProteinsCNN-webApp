@@ -63,16 +63,31 @@ upper_col_2 = dbc.Col(
         html.P(
             [
             html.I(className='ico fas fa-chevron-right'),
-            'Different CNN architectures and voxelization types were evaluated. More details here',
+            'Different ',
+            html.Mark('CNN architectures'),
+            ' and voxelization types were evaluated. More details here: ',
+            html.A(
+                html.I(className='fab fa-github-alt'), 
+                href='https://ebony-savory-246.notion.site/AutoGrid-and-CNNs-9f8722f576f84b759504d297424e161a',
+                target='_blank')
             ],
-            #https://ebony-savory-246.notion.site/AutoGrid-and-CNNs-9f8722f576f84b759504d297424e161a
+            #
         ),
         html.P(
             [
             html.I(className='ico fas fa-chevron-right'),
-            'Use the Radio buttons below to select between four of the main results we obtained:',
+            'More about the ',
+            html.Mark('CNN implementation'),
+            ' can be consulted here:',
+            ' ',
+            html.A(
+                html.I(className='fab fa-github-alt'), 
+                href='https://github.com/jRicciL/Poster-ProteinsCNN-webApp/blob/main/data/CNN_Autogrid_POVME_Classification_Poster_TEST.ipynb',
+                target='_blank')
             ],
+            #https://ebony-savory-246.notion.site/AutoGrid-and-CNNs-9f8722f576f84b759504d297424e161a
         ),
+
     ]
 )
 
@@ -129,6 +144,14 @@ col_card_slider = dbc.Col(
 col_controls = dbc.Col(
     lg=3, md = 12,
     children=[
+        html.P(
+            [
+            html.I(className='ico fas fa-chevron-right'),
+            'Use the ',
+            html.B('Radio buttons'),
+            ' below to select between four of the main results we obtained:',
+            ],
+        ),
          dbc.FormGroup(
                 [
                 html.Br(),
