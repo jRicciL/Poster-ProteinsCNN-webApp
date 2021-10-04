@@ -134,7 +134,7 @@ summary_col = dbc.Col(
                             html.Code("POVME3"),
                             ' and ',
                             html.Code("AutoGrid"),
-                            ' to evaluate the 3D properties of the binding shape.',
+                            ' to evaluate the 3D properties of the binding site.',
                         ],
                         className="card-text",
                     ),
