@@ -8,7 +8,7 @@
 ## Briefly...
 We implemented a machine learning model to predict **which protein conformations** will perform **the best in a _virtual screening_** experiment.
 
-![Ensemble Docking process](https://raw.githubusercontent.com/jRicciL/Poster-ProteinsCNN-webApp/main/assets/images/ensemble_docking.png)
+![Ensemble Docking process](https://raw.githubusercontent.com/jRicciL/Poster-ProteinsCNN-webApp/main/assets/images/ensemble_docking.svg)
 
 ## 🗂 About this repository
 
