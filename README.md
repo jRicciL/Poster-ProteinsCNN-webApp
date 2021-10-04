@@ -1,10 +1,12 @@
 # Druggability prediction of protein conformations using convolutional neural networks
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FjRicciL%2FML-ensemble-docking&count_bg=%23AA814C&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FjRicciL%2FPoster-ProteinsCNN-webApp&count_bg=%233D9EC8&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
-Check the web app here:
+**Check the web app here:** [Ensemble Docking + CNN Poster](https://jrl-cnn-poster-app.herokuapp.com/) 
 
-We implemented a machine learning model to predict which protein conformations will perform the best in a virtual screening experiment.
+
+## Briefly...
+We implemented a machine learning model to predict **which protein conformations** will perform **the best in a _virtual screening_** experiment.
 
 ![Ensemble Docking process](https://raw.githubusercontent.com/jRicciL/Poster-ProteinsCNN-webApp/main/assets/images/ensemble_docking.png)
 
