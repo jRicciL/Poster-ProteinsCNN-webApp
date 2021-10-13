@@ -22,5 +22,5 @@ app = dash.Dash(
     external_stylesheets=[dbc.themes.JOURNAL, FA],
     external_scripts=external_scripts,
 )
-app.title = 'JRL: LatinXChem poster'
+app.title = 'JRL: EMBO Worskshop poster'
 
