@@ -179,7 +179,8 @@ text_content_col_2  = dbc.Col(
             html.I(className='ico fas fa-chevron-right'),
             'ED has been ',
             html.B('successfully applied'),
-            ' in several studies, but critical challenges still need to be addressed.'
+            ' in several studies, but critical challenges still need to be addressed, like ',
+            html.Mark(html.Em('how to select the best suitable comformations?'))
            ],
        ),
     ]
@@ -201,8 +202,8 @@ text_content_col_3  = dbc.Col(
     html.Br(),
        html.H4(
            [
-               html.Span('But, '),
-               html.Span('how to select',
+            #    html.Span('But, '),
+               html.Span('How to select',
            className='intro-col3-title-mark'),
                 html.Span(' the best ',
            className='intro-col3-title-mark'),
