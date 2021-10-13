@@ -131,10 +131,10 @@ span.intro-col3-title-mark {
 }
 
 span.intro-col3-title-mark:after {
-    background-color: rgb(173, 250, 255);
+    background-color:#fcc986;
     content: " ";
     position: absolute;
-    height: 20%;
+    height: 25%;
     left: 0;
     top: 65%;
     margin-left: -0.1rem;
