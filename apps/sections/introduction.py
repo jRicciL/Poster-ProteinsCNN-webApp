@@ -148,7 +148,7 @@ text_content_col_2  = dbc.Col(
                 {"key": "1", "src": 
                     app.get_asset_url('images/virtual_screening.png')},
                 {"key": "2", "src": 
-                    app.get_asset_url('images/ensemble_docking.png')}, 
+                    app.get_asset_url('images/ensemble_docking.svg')}, 
             ],
             id='carousel-intro',
             controls=True,
