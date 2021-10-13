@@ -55,13 +55,13 @@ text_content_col_1  = dbc.Col(
         html.P(
             [
                 html.I(className='ico fas fa-circle s2'),
-                html.B("Validation"), " set: ", html.Code("0.83 AUC-ROC"),
+                html.B("Validation"), " set: ", html.Code("0.823 AUC-ROC"),
             ], className='ident-2'
         ),
         html.P(
             [
                 html.I(className='ico fas fa-circle s2'),
-                html.B("Testing"), " set: ", html.Code("0.87 AUC-ROC"),
+                html.B("Testing"), " set: ", html.Code("0.852 AUC-ROC"),
             ], className='ident-2'
         ),
         html.P(
@@ -201,7 +201,8 @@ text_content_col_3  = dbc.Col(
                 html.I(className='ico fas fa-chevron-right'),
                 'To all developers and researchers who have provided us with excellent tools and knowledge to carry out our research.'
             ]
-        ),        html.P(
+        ),        
+        html.P(
             [
                 html.I(className='ico fas fa-chevron-right'),
                 html.B("Poster's source code: "),
@@ -209,6 +210,21 @@ text_content_col_3  = dbc.Col(
                     html.I(className='fab fa-github-alt'),
                 ],
                 href='https://github.com/jRicciL/Poster-ProteinsCNN-webApp',
+                target='_blank'
+                )
+            ]
+        ), 
+        html.P(
+            [
+                html.I(className='ico fas fa-chevron-right'),
+                'A ',
+                html.B("previous version"),
+                ' of this poster was already presented in ',
+                html.A([
+                    html.B('LatinXChem2021 '), 
+                    html.I(className='fas fa-atom'),
+                ],
+                href='https://www.latinxchem.org/',
                 target='_blank'
                 )
             ]
@@ -269,6 +285,6 @@ layout = dbc.Row(
         text_content_col_1,
         text_content_col_2,
         text_content_col_3,
-        thanks_row 
+        # thanks_row 
         ]
     ) 
