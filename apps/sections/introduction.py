@@ -15,27 +15,42 @@ row_titles = dbc.Col(
     className='row-title-content logo text-center',
     children= [
         # Title
-       html.Hr(),
-       html.H2(
+    #    html.Hr(),
+    #    html.H2(
+    #        html.Span([
+    #        'Hola ',
+    #         ' ',
+    #         html.A('#LatinXChem2021', 
+    #         href='https://twitter.com/hashtag/LatinXChem2021', 
+    #         target = '_blank'),
+    #         ' 🎉 🧬🧪'
+    #        ])
+    #        ),
+        html.H2(
            html.Span([
-           'Hola ',
+           '¡Hola ',
             ' ',
-            html.A('#LatinXChem2021', 
-            href='https://twitter.com/hashtag/LatinXChem2021', 
+            html.A('EMBO 2021', 
+            href='https://meetings.embo.org/event/20-biomolecular-simulations', 
             target = '_blank'),
-            ' 🎉 🧬🧪'
-           ])
+            ' 🧬🧪👾!'
+           ]),
+           style={'font-size': '1.6rem', 
+                  'margin-top': '1.3rem',
+                  'margin-bottom': '0.7rem',
+                  },
+           className='embo-title'
            ),
        # Subtitle
-       html.Br(),
-       html.A(html.Img(
-        alt='LatinXchem logo',
-        src=app.get_asset_url('images/latinchem_logo.png'),
-        className='logo-img',
-        ),
-        href='https://www.latinxchem.org/', target='_blank'
-       ),
-       html.Hr()
+    #    html.Br(),
+    #    html.A(html.Img(
+    #     alt='LatinXchem logo',
+    #     src=app.get_asset_url('images/latinchem_logo.png'),
+    #     className='logo-img',
+    #     ),
+    #     href='https://www.latinxchem.org/', target='_blank'
+    #    ),
+    #    html.Hr()
     ]
 )
 
@@ -44,7 +59,7 @@ text_content_col_1 = dbc.Col(
     lg = 4, md = 12, sm =12,
     children=[
         row_titles,
-        html.H3('Introduction'),
+        # html.H3('Introduction'),
         dbc.Card(
             dbc.CardBody(
                 [
@@ -52,7 +67,7 @@ text_content_col_1 = dbc.Col(
                         [
                             html.H5(
                                 [
-                                html.I(className='fas fa-robot'),
+                                # html.I(className='fas fa-robot'),
                                 " Briefly...",
                                 ], 
                             className="card-title"), 
@@ -62,10 +77,15 @@ text_content_col_1 = dbc.Col(
                         [
                             dcc.Markdown(
                                 [
-                                    'We implemented a **machine learning  model** to predict **which protein conformations** will perform **the best** in a *virtual screening* experiment.'
+                                    'We implemented a **convolutional neural network** classifier to predict **which CDK2 protein conformations** will perform **the best** in a *virtual screening* experiment.', 
                                 ],
                                 className="card-text",
                             ),
+                            html.Img(
+                                alt='LatinXchem logo',
+                                src=app.get_asset_url('images/briefly.svg'),
+                                className='img-fluid',
+                            ),  
                         ], 
                        
                     ), 
