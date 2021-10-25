@@ -26,21 +26,33 @@ row_titles = dbc.Col(
     #         ' 🎉 🧬🧪'
     #        ])
     #        ),
-        html.H2(
-           html.Span([
-           '¡Hola ',
-            ' ',
-            html.A('EMBO 2021', 
-            href='https://meetings.embo.org/event/20-biomolecular-simulations', 
-            target = '_blank'),
-            ' 🧬🧪👾!'
-           ]),
-           style={'font-size': '1.6rem', 
-                  'margin-top': '1.3rem',
-                  'margin-bottom': '0.7rem',
-                  },
-           className='embo-title'
-           ),
+    # html.H2(
+    #    html.Span([
+    #    '¡Hola ',
+    #     ' ',
+    #     html.A('EMBO 2021', 
+    #     href='https://meetings.embo.org/event/20-biomolecular-simulations', 
+    #     target = '_blank'),
+    #     ' 🧬🧪👾!'
+    #    ]),
+    #    style={'font-size': '1.6rem', 
+    #           'margin-top': '1.3rem',
+    #           'margin-bottom': '0.7rem',
+    #           },
+    #    className='embo-title'
+    #    ),
+    html.H2(
+       html.Span([
+       'Welcome ',
+        ' ',
+        '🧬🧪👾!'
+       ]),
+       style={'font-size': '1.6rem', 
+              'margin-top': '1.3rem',
+              'margin-bottom': '0.7rem',
+              },
+       className='embo-title'
+       ),
        # Subtitle
     #    html.Br(),
     #    html.A(html.Img(
